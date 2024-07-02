@@ -1,0 +1,171 @@
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-Black.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-BlackSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-BlackSlanted.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-Bold.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-ExtraBoldSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-ExtraBoldSlanted.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-BoldSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-BoldSlanted.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-ExtraBold.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-Light.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-MediumSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-MediumSlanted.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-ExtraLightSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-ExtraLightSlanted.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-ExtraLight.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-Medium.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-LightSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-LightSlanted.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-SemiBoldSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-SemiBoldSlanted.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-SemiBold.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-Regular.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-Thin.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-Slanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-Slanted.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk-ThinSlanted.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk-ThinSlanted.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tomato Grotesk';
+    src: url('../../../public/fonts/TomatoGrotesk.woff2') format('woff2'),
+        url('../../../public/fonts/TomatoGrotesk.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
