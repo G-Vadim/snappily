@@ -1,28 +1,34 @@
 'use client';
-import Image from "next/image";
+import { useState, useEffect, useMemo } from "react";
 import Slider from "react-slick";
+import Image from "next/image";
 
 import { BaseContainer } from './components/BaseContainer';
 import { Button } from './components/Button';
 import { Article } from './components/Article';
+import { TogetherSection } from "./components/TogetherSection";
 import { home } from './data';
-import {useState} from "react";
-import {TogetherSection} from "@/app/components/TogetherSection";
 
 const Title = ({ text, imageSrc }) => {
-  const settings = {
+  const [autoplaySpeed, setAutoplaySpeed] = useState(200);
+
+  useEffect(() => {
+    setTimeout(() => setAutoplaySpeed(1600), 1100);
+  }, []);
+
+  const settings = useMemo(() => ({
     dots: false,
-    arrows: false,
-    infinite: true,
-    vertical: true,
-    verticalSwiping: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 2000,
-    cssEase: "linear"
-  };
+      arrows: false,
+      infinite: true,
+      vertical: true,
+      verticalSwiping: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 800,
+      autoplaySpeed: autoplaySpeed,
+      cssEase: "linear"
+  }), [autoplaySpeed]);
 
   return (
     <section className="flex justify-between pl-[168px] pr-[110px] mb-20">
@@ -90,44 +96,13 @@ const TargetClients = ({ targetClients }) => (
   </section>
 )
 
-const Advantages = ({ title, items }) => (
-  <section className="flex flex-col gap-[64px]">
-    <div className="max-w-[393px] ml-[167px]">
-      {title}
-    </div>
-    <div className="flex flex-col gap-6">
-      {
-        items.map((item, i) => (
-          <Article key={i} {...item}/>
-        ))
-      }
-    </div>
-  </section>
-);
-
-const TransactionProcess = ({ title, items }) => (
-  <section className="px-[167px]">
-    <div className="flex">
-      {title}
-      <Image src="/images/SmallFingerClick.png" alt="transaction-process" width={219} height={181} className="min-w-[219px]"/>
-    </div>
-    <div className="grid grid-cols-3 gap-10">
-      {
-        items.map(({ id, titles, text }) => (
-          <div key={id} className="flex flex-col gap-5">
-            <div
-              className="w-[40px] h-[40px] flex justify-center items-center rounded-full bg-coral text-white"
-            >
-              <span className="text-[20px] leading-[24px] font-medium">{id}</span>
-            </div>
-            <div>
-              {titles.map((item, i) => <h4 key={`${id}-${i}`} className="text-md font-semibold">{item}</h4>)}
-            </div>
-            <p className="text-base font-light">{text}</p>
-          </div>
-        ))
-      }
-    </div>
+const Advantages = ({ items }) => (
+  <section className="flex flex-col gap-6">
+    {
+      items.map((item, i) => (
+        <Article key={i} {...item}/>
+      ))
+    }
   </section>
 );
 
@@ -142,7 +117,7 @@ const WorryList = ({ worryList }) => (
                 ? <h3 key={`${i}-${el.id}`} className="text-lg font-semibold text-white -tracking-[2px]">{el.title}</h3>
                 : <div key={`${i}-${el.id}`} className="flex flex-col gap-4">
                     {el.icon}
-                    <p className="text-[20px] leading-[28px] -tracking-[2px] font-light text-white">{el.text}</p>
+                    <p className="text-[20px] leading-[28px] font-light text-white">{el.text}</p>
                   </div>
             )
           }
@@ -195,43 +170,45 @@ const Offer = ({title, text}) => (
             {title}
             <p className="text-white text-base font-light max-w-[810px] text-center">{text}</p>
           </div>
-          <div className="grid grid-cols-5 grid-rows-3 gap-5 px-[167px] max-h-[1000px]">
+          <div className="grid grid-cols-5 grid-rows-3 gap-5 px-[167px] max-h-[800px]">
             <div
-              className="flex flex-col items-center pt-[39px] px-[39px] gap-[30px] bg-[#DFDEFB] rounded-[24px] col-span-3 row-span-2 justify-between"
+              className="flex flex-col items-center pt-[20px] px-[39px] gap-[20px] bg-[#DFDEFB] rounded-[24px] col-span-3 row-span-2 justify-between"
             >
-              <h3 className="text-semi-md font-semibold">Digital ID & AML Checks</h3>
-              <Image src="/images/IDCheck.png" alt="IDCheck" width={480} height={520} className="w-[512px]"/>
+              <h3 className="text-md font-semibold">Digital ID & AML Checks</h3>
+              <Image src="/images/IDCheck.png" alt="IDCheck" width={480} height={520} className="w-[420px]"/>
             </div>
             <div
-              className="flex flex-col items-center pt-[39px] px-[39px] gap-[30px] bg-[#FBE8DE] rounded-[24px] col-span-2 row-span-1"
+              className="flex flex-col items-center pt-[20px] px-[39px] gap-[20px] bg-[#FBE8DE] rounded-[24px] col-span-2 row-span-1"
             >
-              <h3 className="text-semi-md font-semibold text-center">Automated Title Deeds</h3>
+              <h3 className="text-md font-semibold text-center">Automated Title Deeds</h3>
               <Image src="/images/AutomatedTitleNeeds.png" alt="AutomatedTitleNeeds" width={292} height={179}/>
             </div>
             <div
-              className="flex flex-col items-center pt-[39px] px-[39px] gap-[30px] bg-white rounded-[24px] col-span-2 row-span-1"
+              className="flex flex-col items-center pt-[20px] px-[39px] gap-[20px] bg-white rounded-[24px] col-span-2 row-span-1"
             >
-              <h3 className="text-semi-md font-semibold text-center">Effortless E-sign for your Terms of Business</h3>
-              <Image src="/images/ESign.png" alt="ESign" width={292} height={143} className="max-h-[143px] object-contain"/>
-            </div>
-            <div
-              className="flex flex-col items-center pt-[39px] px-[39px] gap-[30px] bg-white rounded-[24px] col-span-2 row-span-1"
-            >
-              <h3 className="text-md font-semibold leading-[36px] text-center max-w-[270px]">User-Friendly Property
+              <h3 className="text-md font-semibold text-center max-w-[280px]">User-Friendly Property
                 Information Forms</h3>
-              <Image src="/images/PropertyInfoForm.png" alt="PropertyInfoForm" width={292} height={143} className="max-h-[143px] object-contain"/>
+              <Image src="/images/PropertyInfoForm.png" alt="PropertyInfoForm" width={292} height={143}
+                     className="max-h-[143px] object-contain"/>
             </div>
             <div
-              className="flex flex-col items-center pt-[39px] px-[39px] gap-[30px] bg-[#DEFAFB] rounded-[24px] col-span-3 row-span-1"
+              className="flex flex-col items-center pt-[20px] px-[39px] gap-[20px] bg-white rounded-[24px] col-span-2 row-span-1"
+            >
+              <h3 className="text-md font-semibold text-center">Effortless E-sign for your Terms of Business</h3>
+              <Image src="/images/ESign.png" alt="ESign" width={292} height={143}
+                     className="max-h-[143px] object-contain"/>
+            </div>
+            <div
+              className="flex flex-col items-center py-[20px] px-[39px] justify-between bg-[#DEFAFB] rounded-[24px] col-span-3 row-span-1"
             >
               <Image
                 src="/images/ScreenWithList.png"
                 alt="SecureDocumentStore"
                 width={512}
                 height={185}
-                className="max-h-[185px] object-contain"
+                className="max-h-[160px] object-contain"
               />
-              <h3 className="text-semi-md font-semibold text-center">Secure document store</h3>
+              <h3 className="text-md font-semibold text-center">Secure document store</h3>
             </div>
           </div>
         </div>
@@ -254,7 +231,6 @@ const Home = () => (
         <Description {...home.description} />
         <TargetClients targetClients={home.targetClients}/>
         <Advantages {...home.advantages} />
-        <TransactionProcess {...home.transactionProcess}/>
       </div>
     </BaseContainer>
     <Offer {...home.offer} />

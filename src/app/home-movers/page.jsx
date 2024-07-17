@@ -7,10 +7,39 @@ import { TogetherSection } from '../components/TogetherSection';
 import { PlatformButtons } from '../components/PlatformButtons';
 import { homeMovers } from '../data';
 
+const TransactionProcess = ({ title, items }) => (
+  <section className="px-[167px]">
+    <div className="flex">
+      {title}
+      <Image src="/images/SmallFingerClick.png" alt="transaction-process" width={219} height={181} className="min-w-[219px]"/>
+    </div>
+    <div className="grid grid-cols-3 gap-10">
+      {
+        items.map(({ id, titles, text }) => (
+          <div key={id} className="flex flex-col gap-5">
+            <div
+              className="w-[40px] h-[40px] flex justify-center items-center rounded-full bg-coral text-white"
+            >
+              <span className="text-[20px] leading-[24px] font-medium">{id}</span>
+            </div>
+            <div>
+              {titles.map((item, i) => <h4 key={`${id}-${i}`} className="text-md font-semibold">{item}</h4>)}
+            </div>
+            <p className="text-base font-light">{text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+);
+
 const HomeMovers = () => (
   <>
     <BaseContainer>
       <PageTitle {...homeMovers.header}/>
+      <section className="mt-[75px]">
+        <TransactionProcess {...homeMovers.transactionProcess} />
+      </section>
       <section className="flex flex-col gap-6 mt-[75px]">
         {homeMovers.articles.map(({id, ...item}, i) => (
           <Article key={id} revert={!Boolean(i % 2)} {...item}/>

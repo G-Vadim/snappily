@@ -15,6 +15,26 @@ export const homeMovers =  {
     title: 'For Home Movers',
     subTitle: 'Snappily has been referred by your estate agent to assist you in completing the legally required documents for your home move.',
   },
+  transactionProcess: {
+    title: <h1 className="text-2xl font-bold -tracking-[2px]">Why is Snappily important in the <span className="text-coral">Transaction Process?</span></h1>,
+    items: [
+      {
+        id: 1,
+        titles: ['Speeding up the', 'transaction process'],
+        text: 'Snappily ensures both your agent and conveyancer have access to all essential information about your property upfront. This seamless transfer of information and documents minimizes unnecessary questions and duplication, speeding up the transaction process.'
+      },
+      {
+        id: 2,
+        titles: ['Attracting', 'more offers'],
+        text: 'Snappily\'s detailed property information empowers your agent to showcase your home in its best light, captivating more prospective buyers. This enhanced presentation often leads to increased offers and facilitates a faster sale.'
+      },
+      {
+        id: 3,
+        titles: ['Reducing', 'fall-throughs'],
+        text: 'Completing the information accurately is like putting a safety net under your sale. It helps make sure you follow all the legal rules and reduces the chance of issues happening down the line. This can help stop the sale from falling through, saving time and effort for everyone involved.'
+      }
+    ]
+  },
   articles: [
     {
       id: 1,
@@ -42,28 +62,28 @@ export const homeMovers =  {
 
 export const partners = {
   header: {
-    imageSrc: '/images/PageTitle.jpg',
+    imageSrc: '/images/ForSale.png',
     title: 'For Partners',
     subTitle: 'Partner with Snappily for a seamless, secure, and stress-free home moving experience. We’re here to support every step of the way, ensuring everything is in order and gets done snappily!',
   },
   articles: [
     {
       id: 1,
-      imageSrc: '/images/Section.jpg',
+      imageSrc: '/images/Section.png',
       title: <h2 className="text-lg font-bold -tracking-[2px]"><span className="text-coral">Streamline </span>Compliance</h2>,
       text: 'We partner with estate agencies nationwide to support home buyers and sellers right from the start of their moving journey, ensuring properties are listed compliantly. With Snappily, all necessary compliance information and documents are digitally available at your fingertips, providing peace of mind with regulations. We are your one-stop-shop for compliance.',
       bgColor: '#fbe8de'
     },
     {
       id: 2,
-      imageSrc: '/images/Section.jpg',
+      imageSrc: '/images/Section.png',
       title: <h2 className="text-lg font-bold -tracking-[2px]"><span className="text-coral">Boost </span>Efficiency</h2>,
       text: 'Our compliance platform centralises all compliance tasks, eliminating the need for multiple logins and various apps. By minimising paperwork and offering support, we facilitate an efficient property transaction process, allowing you to focus on what you do best.',
       bgColor: '#dfdefb'
     },
     {
       id: 3,
-      imageSrc: '/images/Section.jpg',
+      imageSrc: '/images/Section.png',
       title: <h2 className="text-lg font-bold -tracking-[2px]"><span className="text-coral">Enhance </span>Client Satisfaction</h2>,
       text: 'Providing a better experience for your clients not only makes their home moving process easier but also reflects positively on your services. Our co-branded platform offers additional value, helping you stand out in a competitive market. Our Snappily support service complements your business, blending human touch with technological efficiency to suit your preferences.',
       bgColor: '#defafb'
@@ -73,7 +93,7 @@ export const partners = {
 
 export const aboutUs = {
   header: {
-    imageSrc: '/images/PageTitle.jpg',
+    imageSrc: '/images/PageTitle.png',
     title: 'Making Home Moves Easy',
     subTitle: "We're an app dedicated to providing a seamless experience for home movers, minimising paperwork and providing clear guidance for UK property transactions. We partner with estate agencies nationwide to assist home buyers and sellers in the initial phase of the home moving process. We are here to ensure that when an estate agent lists a property for sale, they have all the required compliance information to hand. We simply support the process to ensure everything is in order and gets done snappily!",
     note: 'Please note, we do not list properties for sale. For any property-related questions, kindly contact your estate agent.'
@@ -88,7 +108,7 @@ export const aboutUs = {
 
 export const faq = {
   header: {
-    imageSrc: '/images/PageTitle.jpg',
+    imageSrc: '/images/HappyCallCenter.png',
     title: 'Frequently Asked Questions',
   },
   questions: [
@@ -206,7 +226,7 @@ export const faq = {
 export const home = {
   titleSection: {
     text: 'Our compliance platform and user-friendly app ensure a seamless start to the home moving journey by helping you swiftly manage essential tasks.',
-    imageSrc: '/images/HomeTitle.jpg'
+    imageSrc: '/images/HomeTitle.png'
   },
   keys: [
     {
@@ -279,7 +299,6 @@ export const home = {
     }
   ],
   advantages: {
-    title: <h1 className="text-2xl font-bold -tracking-[2px]"><span className="text-coral">What</span> does Snappily do?</h1>,
     items: [
       {
         id: 1,
@@ -310,26 +329,6 @@ export const home = {
         </div>,
         text: 'Our digital platform offers a secure way to manage your documents. You can easily upload, review, and sign documents, all stored in one place for convenient access and peace of mind. With Snappily, documents can be securely shared between relevant parties, ensuring seamless collaboration.',
         bgColor: '#ffffff'
-      }
-    ]
-  },
-  transactionProcess: {
-    title: <h1 className="text-2xl font-bold -tracking-[2px]">Why is Snappily important in the <span className="text-coral">Transaction Process?</span></h1>,
-    items: [
-      {
-        id: 1,
-        titles: ['Speeding up the', 'transaction process'],
-        text: 'Snappily ensures both your agent and conveyancer have access to all essential information about your property upfront. This seamless transfer of information and documents minimizes unnecessary questions and duplication, speeding up the transaction process.'
-      },
-      {
-        id: 2,
-        titles: ['Attracting', 'more offers'],
-        text: 'Snappily\'s detailed property information empowers your agent to showcase your home in its best light, captivating more prospective buyers. This enhanced presentation often leads to increased offers and facilitates a faster sale.'
-      },
-      {
-        id: 3,
-        titles: ['Reducing', 'fall-throughs'],
-        text: 'Completing the information accurately is like putting a safety net under your sale. It helps make sure you follow all the legal rules and reduces the chance of issues happening down the line. This can help stop the sale from falling through, saving time and effort for everyone involved.'
       }
     ]
   },
