@@ -5,6 +5,7 @@ import { Article } from '../components/Article';
 import { BaseContainer } from '../components/BaseContainer';
 import { TogetherSection } from '../components/TogetherSection';
 import { PlatformButtons } from '../components/PlatformButtons';
+import { Phone } from "../components/Phone";
 import { homeMovers } from '../data';
 
 const TransactionProcess = ({ title, items }) => (
@@ -46,7 +47,7 @@ const HomeMovers = () => (
         ))}
       </section>
       <section className="flex gap-12 justify-center items-center mt-[144px]">
-        <Image src="/images/IDCheck.png" alt="IDCheck" width={482} height={644} className="rounded-[24px] h-full"/>
+        <Phone />
         <div className="flex flex-col gap-10 w-[437px]">
           <h2 className="text-2xl font-bold -tracking-[2px] max-w-[350px]">
             Here’s{' '}<span className="text-coral">how</span>{' '}our service works

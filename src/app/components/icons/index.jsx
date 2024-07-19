@@ -11,6 +11,7 @@ import { LaptopIcon } from './LaptopIcon';
 import { LockIcon } from './Lockcon';
 import { MessageIcon } from './MessageIcon';
 import { SmallLogoIcon } from './SmallLogoIcon';
+import { StarIcon } from './StarIcon';
 import { StepsIcon } from './StepsIcon';
 import { TableIcon } from './TableIcon';
 
@@ -28,6 +29,7 @@ export {
   LockIcon,
   MessageIcon,
   SmallLogoIcon,
+  StarIcon,
   StepsIcon,
   TableIcon
 };

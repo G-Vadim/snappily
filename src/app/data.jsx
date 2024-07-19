@@ -114,6 +114,19 @@ export const faq = {
   questions: [
     {
       id: 'question-1',
+      text: 'What is Snappily?',
+      answer: <>
+        <p>We&apos;re a tech company dedicated to providing a seamless experience for home movers, minimising paperwork and providing clear guidance for UK property transactions. We partner with estate agencies nationwide to assist home buyers and sellers in the initial phase of the home moving process so you can:</p>
+        <ul className="ml-[21px] list-disc">
+          <li><span className="font-semibold">Say goodbye to the hassle of paperwork.</span> Snappily lets you swiftly complete all essential documents digitally, right from home. Designed to be easy-to-use and free of legal jargon, Snappily makes the process smooth and stress-free.</li>
+          <li><span className="font-semibold">Speed Up Your Transaction:</span> Snappily simplifies the completion of compliance tasks, saving you time and effort. We cut out the duplication and trim down the questions, aiming to provide information upfront for a more enjoyable (and snappy) home moving experience!</li>
+          <li><span className="font-semibold">Securely Manage Documents:</span> Our digital platform offers a secure way to manage your documents. You can easily upload, review, and sign documents, all stored in one place for convenient access and peace of mind. With Snappily, documents can be securely shared between relevant parties, ensuring seamless collaboration.</li>
+        </ul>
+        <p>Please note, we do not list properties for sale. Your Agent will prepare your brochure and online listing, handling the photography and marketing of your property. For any property-related questions, kindly contact your estate agent.</p>
+      </>
+    },
+    {
+      id: 'question-2',
       text: 'How do I log in to Snappily?',
       answer: <>
         <p>Having trouble logging in because your username or password is incorrect? No worries! Here’s how to fix it:</p>
@@ -129,7 +142,7 @@ export const faq = {
       </>
     },
     {
-      id: 'question-2',
+      id: 'question-3',
       text: 'Are you going to list my property for sale?',
       answer: <p>We are not going to list your property for sale online. We are a tech company that provides support to
         home movers to ensure that when your estate agent lists your property, they have all the required compliance
@@ -137,7 +150,7 @@ export const faq = {
       </p>
     },
     {
-      id: 'question-3',
+      id: 'question-4',
       text: 'Why do I need to provide an ID check online?',
       answer: <>
         <p>It is a legal requirement to provide an ID check in the UK for all property transactions.</p>
@@ -160,7 +173,7 @@ export const faq = {
       </>
     },
     {
-      id: 'question-4',
+      id: 'question-5',
       text: 'What is a Property Information Form?',
       answer: <>
         <p>The Property Information Form is like a spotlight on your home, showcasing its best features and allowing you
@@ -171,7 +184,7 @@ export const faq = {
       </>
     },
     {
-      id: 'question-5',
+      id: 'question-6',
       text: 'Why is Snappily important in the Transaction Process?',
       answer: <ul className="ml-[16px] list-decimal">
         <li>Speeding up the transaction process: It helps your solicitor thoroughly check the property and identify any
@@ -189,7 +202,7 @@ export const faq = {
       </ul>
     },
     {
-      id: 'question-6',
+      id: 'question-7',
       text: 'Why appoint a conveyancer?',
       answer: <>
         <p>Adding a conveyancer at an early stage can help speed up the selling process and reduce the number of legal
@@ -204,7 +217,7 @@ export const faq = {
       </>
     },
     {
-      id: 'question-7',
+      id: 'question-8',
       text: 'How to Make a Complaint?',
       answer: <>
         <p>We genuinely care about your experience and strive to ensure you are always satisfied with our service. If
@@ -226,7 +239,7 @@ export const faq = {
 export const home = {
   titleSection: {
     text: 'Our compliance platform and user-friendly app ensure a seamless start to the home moving journey by helping you swiftly manage essential tasks.',
-    imageSrc: '/images/HomeTitle.png'
+    imageSrc: '/images/FingerClick2.png'
   },
   keys: [
     {
@@ -298,6 +311,49 @@ export const home = {
       text: 'Say Goodbye to Moving Hassles with Snappily. With our user-friendly app you can swiftly complete all essential documents digitally from the comfort of home, freeing up more time for the things you love during your move!'
     }
   ],
+  testimonials: {
+    title: <h1 className="text-xl font-bold -tracking-[2px] text-center">What Our <span className="text-coral">Customers</span> Say</h1>,
+    items: [
+      {
+        id: 1,
+        avatar: '/images/Client.png',
+        rate: 5,
+        text: 'Having used Move Genius for about 6 months now we feel is it a great product which caters for all your onboarding in one place. The support team are always on hand to help us as the Estate Agent & also our sellers! Nothing is ever much trouble. Already recommending to other offices.',
+        name: 'Ashley, Hunters Chesterfield',
+      },
+      {
+        id: 2,
+        avatar: '/images/Client.png',
+        rate: 5,
+        text: 'MoveGenius is a quick and convenient service to ensure I’m compliant when onboarding new customers. The team are hands-on with helping progress your clients through the process, which also save me time. Also, since partnering with them, MoveGenius have added more useful features to their service, which gives me confidence that they listen to their clients and are committed to providing the very best product possible.',
+        name: 'Jamie, Katie Homes',
+      },
+      {
+        id: 3,
+        avatar: '/images/Client.png',
+        rate: 5,
+        text: '“MoveGenius is simple to use, it does what is says on the tin.”',
+        name: 'Joe',
+      },
+      {
+        id: 4,
+        avatar: '/images/Client.png',
+        rate: 5,
+        text: 'MoveGenius have provided us with the opportunity to streamline our Sales on-boarding process, in a digital and mobile way. The easy-to-use platform allows us as an agent to manage our compliance documents, easily view any outstanding Seller tasks, capture important property details before marketing, all whilst saving us a lot of time. Our clients are impressed with their stress-free experience whilst on-boarding with MoveGenius, which has lead to faster turnaround from compliance to going live on the market.',
+        name: 'James, Parker & Co',
+      },
+    ]
+  },
+  logos: [
+    { id: 1, imageSrc: '/images/Logo1.jpg' },
+    { id: 2, imageSrc: '/images/Logo2.jpg' },
+    { id: 3, imageSrc: '/images/Logo3.jpg' },
+    { id: 4, imageSrc: '/images/Logo4.jpg' },
+    { id: 5, imageSrc: '/images/Logo5.jpg' },
+    { id: 6, imageSrc: '/images/Logo6.jpg' },
+    { id: 7, imageSrc: '/images/Logo7.jpg' },
+    { id: 8, imageSrc: '/images/Logo8.jpg' },
+  ],
   advantages: {
     items: [
       {
@@ -348,27 +404,32 @@ export const home = {
       {
         id: 1,
         title: 'Compliance Platform',
-        imageSrc: '/images/CompliancePlatform.png'
+        imageSrc: '/images/CompliancePlatform.png',
+        imageStyle: 'top-[30px]'
       },
       {
         id: 2,
         title: 'Seller & Buyer App',
-        imageSrc: '/images/CompliancePlatform.png'
+        imageSrc: '/images/SellerAndBuyerApp.png',
+        imageStyle: 'top-[32px]'
       },
       {
         id: 3,
         title: 'Snappily Service',
-        imageSrc: '/images/CompliancePlatform.png'
+        imageSrc: '/images/SnappilyService.png',
+        imageStyle: 'left-[100px] -top-[17px]'
       },
       {
         id: 4,
         title: 'Conveyancer Integration',
-        imageSrc: '/images/CompliancePlatform.png'
+        imageSrc: '/images/ConveyancerIntegration.png',
+        imageStyle: 'left-[15px] top-[33px]'
       },
       {
         id: 5,
         title: 'Alto CRM Integration*',
-        imageSrc: '/images/CompliancePlatform.png'
+        imageSrc: '/images/AltoCRMIntegration.png',
+        imageStyle: '-top-[28px]'
       }
     ]
   }

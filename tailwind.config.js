@@ -15,13 +15,6 @@ module.exports = {
       fontFamily: {
         custom: ['Tomato Grotesk', 'sans-serif'],
       },
-      boxShadow: {
-        'tab-image': '' +
-          '0 279px 112px 0 rgba(255, 0, 51, 0.01),' +
-          '0 157px 94px 0 rgba(255, 0, 51, 0.02),' +
-          '0 70px 70px 0 rgba(255, 0, 51, 0.03),' +
-          '0 17px 38px 0 rgba(255, 0, 51, 0.04)',
-      }
     },
     fontSize: {
       xs: ['14px', '20px'],

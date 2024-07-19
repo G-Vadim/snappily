@@ -1,11 +1,10 @@
-import Image from "next/image";
-
 import { BaseContainer } from '../components/BaseContainer';
 import { PageTitle } from '../components/PageTitle';
 import { Article } from '../components/Article';
 import { PlatformButtons } from '../components/PlatformButtons';
 import { TogetherSection } from '../components/TogetherSection';
 import { HandsIcon, CompassIcon } from '../components/icons';
+import { Phone } from "../components/Phone";
 import { partners } from '../data';
 
 const Partners = () => (
@@ -31,7 +30,7 @@ const Partners = () => (
               services.
             </p>
           </div>
-          <Image src="/images/IDCheck.png" alt="IDCheck" width={482} height={644} className="min-w-[482px] h-auto"/>
+          <Phone />
           <div className="flex flex-col gap-5">
             <CompassIcon />
             <h3 className="text-md font-semibold -tracking-[2px]">Automated Task Management</h3>

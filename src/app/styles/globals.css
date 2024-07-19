@@ -15,3 +15,41 @@ body {
   color: var(--base-text-charcoal);
   font-family: 'Tomato Grotesk', sans-serif;
 }
+
+.testimonials .slick-track {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+.testimonials .slick-dots {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.testimonials .slick-dots li {
+  padding: 0;
+  width: 13px;
+  height: 13px;
+}
+
+.testimonials .slick-dots li button {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(255, 0, 51, 0.2);
+}
+
+.testimonials .slick-dots li.slick-active button {
+  background: #FF0033;
+}
+
+.testimonials .slick-dots li button:before {
+  color: transparent;
+  width: 13px;
+  height: 13px;
+}
+
+.testimonials .slick-dots li.slick-active button:before {
+  color: transparent;
+}
