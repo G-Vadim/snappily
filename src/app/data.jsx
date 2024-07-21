@@ -127,22 +127,6 @@ export const faq = {
     },
     {
       id: 'question-2',
-      text: 'How do I log in to Snappily?',
-      answer: <>
-        <p>Having trouble logging in because your username or password is incorrect? No worries! Here’s how to fix it:</p>
-        <ul className="ml-[21px] list-decimal">
-          <li>Click “Forgot Password” on the login page.</li>
-          <li>Check your email for reset instructions. If it’s not in your inbox, peek into your spam or junk folder.</li>
-          <li>Follow the instructions in the email to reset your password.</li>
-        </ul>
-        <p>If you still don’t see the email or need more help, just reach out to our support team for assistance:
-          support@snappily.co.uk. We&apos;re here to help!</p>
-        <p>Are you going to list my property for sale?</p>
-        <p>We are not going to list your property for sale online. We are a tech company that provides support to home movers to ensure that when your estate agent lists your property, they have all the required compliance information to hand. We simply support the process to ensure everything is in order and gets done snappily!</p>
-      </>
-    },
-    {
-      id: 'question-3',
       text: 'Are you going to list my property for sale?',
       answer: <p>We are not going to list your property for sale online. We are a tech company that provides support to
         home movers to ensure that when your estate agent lists your property, they have all the required compliance
@@ -150,7 +134,7 @@ export const faq = {
       </p>
     },
     {
-      id: 'question-4',
+      id: 'question-3',
       text: 'Why do I need to provide an ID check online?',
       answer: <>
         <p>It is a legal requirement to provide an ID check in the UK for all property transactions.</p>
@@ -173,7 +157,7 @@ export const faq = {
       </>
     },
     {
-      id: 'question-5',
+      id: 'question-4',
       text: 'What is a Property Information Form?',
       answer: <>
         <p>The Property Information Form is like a spotlight on your home, showcasing its best features and allowing you
@@ -184,7 +168,7 @@ export const faq = {
       </>
     },
     {
-      id: 'question-6',
+      id: 'question-5',
       text: 'Why is Snappily important in the Transaction Process?',
       answer: <ul className="ml-[16px] list-decimal">
         <li>Speeding up the transaction process: It helps your solicitor thoroughly check the property and identify any
@@ -202,7 +186,7 @@ export const faq = {
       </ul>
     },
     {
-      id: 'question-7',
+      id: 'question-6',
       text: 'Why appoint a conveyancer?',
       answer: <>
         <p>Adding a conveyancer at an early stage can help speed up the selling process and reduce the number of legal
@@ -217,7 +201,7 @@ export const faq = {
       </>
     },
     {
-      id: 'question-8',
+      id: 'question-7',
       text: 'How to Make a Complaint?',
       answer: <>
         <p>We genuinely care about your experience and strive to ensure you are always satisfied with our service. If
@@ -325,21 +309,14 @@ export const home = {
         id: 2,
         avatar: '/images/Client.png',
         rate: 5,
-        text: 'MoveGenius is a quick and convenient service to ensure I’m compliant when onboarding new customers. The team are hands-on with helping progress your clients through the process, which also save me time. Also, since partnering with them, MoveGenius have added more useful features to their service, which gives me confidence that they listen to their clients and are committed to providing the very best product possible.',
+        text: 'MoveGenius is a quick and convenient service to ensure I’m compliant when onboarding new customers. The team are hands-on with helping progress your clients through the process, which also save me time.',
         name: 'Jamie, Katie Homes',
       },
       {
         id: 3,
         avatar: '/images/Client.png',
         rate: 5,
-        text: '“MoveGenius is simple to use, it does what is says on the tin.”',
-        name: 'Joe',
-      },
-      {
-        id: 4,
-        avatar: '/images/Client.png',
-        rate: 5,
-        text: 'MoveGenius have provided us with the opportunity to streamline our Sales on-boarding process, in a digital and mobile way. The easy-to-use platform allows us as an agent to manage our compliance documents, easily view any outstanding Seller tasks, capture important property details before marketing, all whilst saving us a lot of time. Our clients are impressed with their stress-free experience whilst on-boarding with MoveGenius, which has lead to faster turnaround from compliance to going live on the market.',
+        text: 'The easy-to-use platform allows us as an agent to manage our compliance documents, easily view any outstanding Seller tasks, capture important property details before marketing, all whilst saving us a lot of time. Our clients are impressed with their stress-free experience whilst on-boarding with MoveGenius, which has lead to faster turnaround from compliance to going live on the market.',
         name: 'James, Parker & Co',
       },
     ]

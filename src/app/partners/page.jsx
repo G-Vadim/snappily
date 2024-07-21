@@ -43,7 +43,7 @@ const Partners = () => (
             </p>
           </div>
         </div>
-        <PlatformButtons/>
+        {/*<PlatformButtons/>*/}
       </section>
     </BaseContainer>
     <TogetherSection/>

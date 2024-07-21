@@ -38,23 +38,21 @@ const HomeMovers = () => (
   <>
     <BaseContainer>
       <PageTitle {...homeMovers.header}/>
-      <section className="mt-[75px]">
-        <TransactionProcess {...homeMovers.transactionProcess} />
-      </section>
       <section className="flex flex-col gap-6 mt-[75px]">
         {homeMovers.articles.map(({id, ...item}, i) => (
           <Article key={id} revert={!Boolean(i % 2)} {...item}/>
         ))}
       </section>
       <section className="flex gap-12 justify-center items-center mt-[144px]">
-        <Phone />
+        <Phone/>
         <div className="flex flex-col gap-10 w-[437px]">
           <h2 className="text-2xl font-bold -tracking-[2px] max-w-[350px]">
             Here’s{' '}<span className="text-coral">how</span>{' '}our service works
           </h2>
           <div className="flex flex-col font-light gap-8">
             <p className="text-base">
-              Our Home Mover App is your one-stop hub for managing initial compliance tasks for your move, all with just a
+              Our Home Mover App is your one-stop hub for managing initial compliance tasks for your move, all with just
+              a
               few clicks.
               <br/>
               <br/>
@@ -66,9 +64,12 @@ const HomeMovers = () => (
               on, ensuring a smooth journey with no hiccups down the road.
               </span>
             </p>
-            <PlatformButtons />
+            {/*<PlatformButtons />*/}
           </div>
         </div>
+      </section>
+      <section className="mt-[140px]">
+        <TransactionProcess {...homeMovers.transactionProcess} />
       </section>
     </BaseContainer>
     <TogetherSection/>
