@@ -38,7 +38,7 @@ export const homeMovers =  {
   articles: [
     {
       id: 1,
-      imageSrc: '/images/ESign.png',
+      imageSrc: '/images/IDCheck.png',
       title: <h2 className="text-lg font-bold -tracking-[2px]"><span className="text-coral">Swift </span>Digital Completion</h2>,
       text: 'Say goodbye to the hassle of paperwork. With Snappily, you can complete all essential documents digitally, right from your home. Designed to be user-friendly and free of legal jargon, our platform makes the process smooth and stress-free.',
       bgColor: '#fbe8de'
@@ -69,21 +69,21 @@ export const partners = {
   articles: [
     {
       id: 1,
-      imageSrc: '/images/Section.png',
+      imageSrc: '/images/Paper.png',
       title: <h2 className="text-lg font-bold -tracking-[2px]"><span className="text-coral">Streamline </span>Compliance</h2>,
       text: 'We partner with estate agencies nationwide to support home buyers and sellers right from the start of their moving journey, ensuring properties are listed compliantly. With Snappily, all necessary compliance information and documents are digitally available at your fingertips, providing peace of mind with regulations. We are your one-stop-shop for compliance.',
       bgColor: '#fbe8de'
     },
     {
       id: 2,
-      imageSrc: '/images/Section.png',
+      imageSrc: '/images/Rabbit.png',
       title: <h2 className="text-lg font-bold -tracking-[2px]"><span className="text-coral">Boost </span>Efficiency</h2>,
       text: 'Our compliance platform centralises all compliance tasks, eliminating the need for multiple logins and various apps. By minimising paperwork and offering support, we facilitate an efficient property transaction process, allowing you to focus on what you do best.',
       bgColor: '#dfdefb'
     },
     {
       id: 3,
-      imageSrc: '/images/Section.png',
+      imageSrc: '/images/HappyCallCenter.png',
       title: <h2 className="text-lg font-bold -tracking-[2px]"><span className="text-coral">Enhance </span>Client Satisfaction</h2>,
       text: 'Providing a better experience for your clients not only makes their home moving process easier but also reflects positively on your services. Our co-branded platform offers additional value, helping you stand out in a competitive market. Our Snappily support service complements your business, blending human touch with technological efficiency to suit your preferences.',
       bgColor: '#defafb'
@@ -302,7 +302,7 @@ export const home = {
         id: 1,
         avatar: '/images/Client.png',
         rate: 5,
-        text: 'Having used Move Genius for about 6 months now we feel is it a great product which caters for all your onboarding in one place. The support team are always on hand to help us as the Estate Agent & also our sellers! Nothing is ever much trouble. Already recommending to other offices.',
+        text: 'Having used Move Genius for about 6 months now we feel it is a great product which caters for all your onboarding in one place. The support team are always on hand to help us as the Estate Agent & also our sellers! Nothing is ever much trouble. Already recommending to other offices.',
         name: 'Ashley, Hunters Chesterfield',
       },
       {

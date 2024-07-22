@@ -21,28 +21,28 @@ export const Footer = () => (
       </ul>
     </nav>
     <div className="flex justify-center gap-11">
-      <Link href="/" className="text-xl font-semibold tracking-[0.2px]">Linkedin</Link>
-      <Link href="/" className="text-xl font-semibold tracking-[0.2px]">Instagram</Link>
+      <Link
+        href="https://www.linkedin.com/company/snappilyuk/?viewAsMember=true"
+        target="_blank"
+        className="text-xl font-semibold tracking-[0.2px]"
+      >
+        Linkedin
+      </Link>
+      <Link
+        href="https://www.instagram.com/snappily_uk?igsh=aGZmNDgxdzRqcGtx"
+        target="_blank"
+        className="text-xl font-semibold tracking-[0.2px]"
+      >
+        Instagram
+      </Link>
     </div>
     <Link href="/">
       <BigLogoIcon />
     </Link>
-    <div className="flex justify-between">
+    <div className="flex">
       <div>
-        <p className="text-sm font-medium tracking-[0.11px]">© 2023 Snappily Holdings Limited. All rights reserved.</p>
+        <p className="text-sm font-medium tracking-[0.11px]">© 2023 Move Genius Holdings Limited. All rights reserved.</p>
         <p className="text-sm font-medium tracking-[0.11px]">Company registration number: 14083514 VAT number: 423872882</p>
-      </div>
-      <div className="flex ml-20">
-        <p className="px-[23px] py-[11px] text-xs font-semibold text-coral bg-white rounded-[22px] relative z-10">
-          We use cookies
-        </p>
-        <p className="w-[186px] py-[11px] text-xs font-semibold text-center text-linen bg-charcoal rounded-[22px] relative left-[-30px]">
-          Ok, that’s fine.
-        </p>
-      </div>
-      <div>
-        <p className="text-sm font-medium tracking-[0.11px]">Privacy Policy</p>
-        <p className="text-sm font-medium tracking-[0.11px]">Product T&C’s</p>
       </div>
     </div>
   </footer>

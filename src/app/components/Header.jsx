@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
+import { BookDemoModal } from "@/app/components/modals/BookDemoModal";
 import { SmallLogoIcon } from './icons';
-import { Button } from './Button';
 
 export const Header = () => (
   <header className="mt-6 flex justify-between items-center">
@@ -25,8 +25,7 @@ export const Header = () => (
       </ul>
     </nav>
     <div className="flex gap-6 items-center">
-      <Link href="/" className="text-xs font-medium">Login</Link>
-      <Button className="text-coral bg-white">Book a demo</Button>
+      <BookDemoModal />
     </div>
   </header>
 );
