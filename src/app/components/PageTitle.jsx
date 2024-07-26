@@ -1,18 +1,29 @@
 import Image from 'next/image';
+import { Flex, Box, Text } from '@chakra-ui/react';
 
 export const PageTitle = ({ imageSrc, title, subTitle, note }) => (
-  <section className="flex flex-col gap-10 items-center">
-    <Image src={imageSrc} alt="page-title" width={480} height={248} className="max-h-[248px] object-contain"/>
-    <div className="flex flex-col gap-6 items-center">
-      <h1 className="text-5xl text-center font-bold -tracking-[2px]">
+  <Flex as="section" flexDir="column" gap="40px" alignItems="center">
+    <Image
+      src={imageSrc}
+      alt="page-title"
+      width={480}
+      height={248}
+      style={{ objectFit: 'contain', maxHeight: '248px' }}
+    />
+    <Flex flexDir="column" gap="24px" alignItems="center">
+      <Text as="h1" fontSize="5xl" lineHeight="5xl" textAlign="center" fontWeight="bold" letterSpacing="-2px">
         {title}
-      </h1>
+      </Text>
       {subTitle && (
-        <p className="text-base max-w-[650px] text-center font-light">{subTitle}</p>
+        <Text fontSize="base" lineHeight="base" maxW="650px" textAlign="center" fontWeight="light">
+          {subTitle}
+        </Text>
       )}
       {note && (
-        <p className="text-base max-w-[650px] text-center font-light">{note}</p>
+        <Text fontSize="base" lineHeight="base" maxW="650px" textAlign="center" fontWeight="light">
+          {note}
+        </Text>
       )}
-    </div>
-  </section>
+    </Flex>
+  </Flex>
 );

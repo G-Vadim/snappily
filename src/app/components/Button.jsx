@@ -1,8 +1,18 @@
-export const Button = ({ children, className, ...props }) => (
-  <button
-    className={`px-[23px] pt-[12px] pb-[11px] rounded-[24px] text-xs font-medium -tracking-[0.22px] w-fit ${className}`}
+import { Box } from '@chakra-ui/react';
+
+export const Button = ({ children, ...props }) => (
+  <Box
+    as="button"
+    px="23px"
+    py="12px"
+    rounded="base"
+    fontSize="xs"
+    lineHeight="xs"
+    fontWeight="medium"
+    letterSpacing="-0.22px"
+    w="fit-content"
     {...props}
   >
     {children}
-  </button>
+  </Box>
 );

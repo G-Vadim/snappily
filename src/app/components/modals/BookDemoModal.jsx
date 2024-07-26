@@ -1,43 +1,47 @@
-"use client";
-import { useState } from "react";
-import Select from "react-select";
+'use client';
+import { useState } from 'react';
+import Select from 'react-select';
+import { Flex, Text, Center, Box, Input, Textarea } from '@chakra-ui/react';
 
-import { Button } from "@/app/components/Button";
+import { Button } from '@/app/components/Button';
 
-const url = "https://onboarding-api-prd.azurewebsites.net/enquiries";
+const url = 'https://onboarding-api-prd.azurewebsites.net/enquiries';
 
 const typeOptions = [
-  { value: "contactUs", label: "Contact Us" },
-  { value: "demo", label: "Demo" },
+  { value: 'contactUs', label: 'Contact Us' },
+  { value: 'demo', label: 'Demo' },
 ];
 
 const colourStyles = {
   control: (styles) => ({
     ...styles,
-    border: "1px solid #29262C",
-    borderRadius: "8px",
-    fontSize: "14px",
-    lineHeight: "20px",
-    fontWeight: "500",
+    border: '1px solid #29262C',
+    borderRadius: '8px',
+    fontSize: '14px',
+    lineHeight: '20px',
+    fontWeight: '500',
+    ':hover': {
+      border: '1px solid #29262C',
+    },
   }),
   option: (styles) => ({
     ...styles,
-    fontSize: "14px",
-    lineHeight: "20px",
-    fontWeight: "500",
+    fontSize: '14px',
+    lineHeight: '20px',
+    fontWeight: '500',
   }),
 };
 
 const initialForm = {
-  name: "",
-  email: "",
+  name: '',
+  email: '',
   enquiryType: typeOptions[0],
-  message: "",
+  message: '',
 };
 
 const defaultErrors = {
-  email: "",
-  submit: "",
+  email: '',
+  submit: '',
 };
 
 export const BookDemoModal = () => {
@@ -45,7 +49,6 @@ export const BookDemoModal = () => {
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState(defaultErrors);
 
-  console.log("formData", formData);
   const handleChangeForm = (key, value) => {
     setFormData((prevState) => ({ ...prevState, [key]: value }));
   };
@@ -56,7 +59,7 @@ export const BookDemoModal = () => {
   };
 
   const handleChangeSelect = (opt) => {
-    handleChangeForm("enquiryType", opt);
+    handleChangeForm('enquiryType', opt);
   };
 
   const handleSubmit = async () => {
@@ -65,23 +68,23 @@ export const BookDemoModal = () => {
     if (!formData.email) {
       setErrors((prevState) => ({
         ...prevState,
-        email: "This field is required!",
+        email: 'This field is required!',
       }));
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       setErrors((prevState) => ({
         ...prevState,
-        email: "The format is wrong!",
+        email: 'The format is wrong!',
       }));
     }
 
     if (!errors.email) {
       try {
         await fetch(url, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             ...formData,
@@ -93,8 +96,7 @@ export const BookDemoModal = () => {
       } catch (e) {
         setErrors((prevState) => ({
           ...prevState,
-          submit:
-            "Sorry we couldn't send your enquiry, please try again later!",
+          submit: "Sorry we couldn't send your enquiry, please try again later!",
         }));
       }
     }
@@ -102,76 +104,106 @@ export const BookDemoModal = () => {
 
   return (
     <>
-      <Button
-        className="text-coral bg-white"
-        onClick={() => setShowModal(true)}
-      >
+      <Button color="coral" bgColor="white" onClick={() => setShowModal(true)}>
         Book a demo
       </Button>
       {showModal && (
-        <div
-          className="fixed top-0 left-0 w-screen h-full flex items-center justify-center"
-          style={{
-            zIndex: 1,
-            background: "rgba(0, 0, 0, 0.3)",
-          }}
+        <Center
+          position="fixed"
+          top={0}
+          left={0}
+          w="100vw"
+          h="100%"
+          zIndex={1}
+          bgColor="rgba(0, 0, 0, 0.3)"
           onClick={() => setShowModal(false)}
         >
-          <div
-            className="w-[500px] rounded-[24px] bg-white p-[30px]"
+          <Box
+            w="500px"
+            rounded="base"
+            bgColor="white"
+            p="30px"
             onClick={(e) => {
               e.stopPropagation();
             }}
           >
-            <div className="mb-[15px] flex flex-col gap-2">
+            <Flex mb="15px" flexDir="column" gap="8px">
               <label htmlFor="email">
-                <span className="text-xs font-medium">Email </span>
-                <span className="text-coral">*</span>
+                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                  Email{' '}
+                </Text>
+                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium" color="coral">
+                  *
+                </Text>
                 {errors.email && (
-                  <span className="text-coral text-xs font-light">
-                    {" "}
+                  <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="light" color="coral">
+                    {' '}
                     {errors.email}
-                  </span>
+                  </Text>
                 )}
               </label>
-              <input
+              <Input
                 id="email"
                 type="text"
-                className={`text-xs font-medium p-2 border rounded-[8px] ${errors.email ? "border-coral" : "border-charcoal"}`}
+                fontSize="xs"
+                lineHeight="xs"
+                fontWeight="medium"
+                p="8px"
+                borderWidth="1px"
+                borderColor={errors.email ? 'coral' : 'charcoal'}
+                rounded="xs"
                 value={formData.email}
-                onChange={handleChangeTextInputs("email")}
+                onChange={handleChangeTextInputs('email')}
                 placeholder="Enter your email"
               />
-            </div>
-            <div className="mb-[15px] flex flex-col gap-2">
+            </Flex>
+            <Flex mb="15px" flexDir="column" gap="8px">
               <label htmlFor="contactNumber">
-                <span className="text-xs font-medium">Phone number</span>
+                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                  Phone number
+                </Text>
               </label>
-              <input
+              <Input
                 id="contactNumber"
                 type="text"
-                className="text-xs font-medium p-2 border rounded-[8px] border-charcoal"
+                fontSize="xs"
+                lineHeight="xs"
+                fontWeight="medium"
+                p="8px"
+                borderWidth="1px"
+                borderColor="charcoal"
+                rounded="xs"
                 value={formData.contactNumber}
-                onChange={handleChangeTextInputs("contactNumber")}
+                onChange={handleChangeTextInputs('contactNumber')}
                 placeholder="Enter your phone number"
               />
-            </div>
-            <div className="mb-[15px] flex flex-col gap-2">
+            </Flex>
+            <Flex mb="15px" flexDir="column" gap="8px">
               <label htmlFor="name">
-                <span className="text-xs font-medium">Name</span>
+                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                  Name
+                </Text>
               </label>
-              <input
+              <Input
                 id="name"
                 type="text"
-                className="text-xs font-medium p-2 border rounded-[8px] border-charcoal"
+                fontSize="xs"
+                lineHeight="xs"
+                fontWeight="medium"
+                p="8px"
+                borderWidth="1px"
+                borderColor="charcoal"
+                rounded="xs"
                 value={formData.name}
-                onChange={handleChangeTextInputs("name")}
+                onChange={handleChangeTextInputs('name')}
                 placeholder="Enter your name"
               />
-            </div>
-            <div className="mb-[15px] flex flex-col gap-2">
+            </Flex>
+            <Flex mb="15px" flexDir="column" gap="8px">
               <label htmlFor="type">
-                <span className="text-xs font-medium">Type</span>
+                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                  Type
+                </Text>
               </label>
               <Select
                 options={typeOptions}
@@ -179,36 +211,50 @@ export const BookDemoModal = () => {
                 onChange={handleChangeSelect}
                 styles={colourStyles}
               />
-            </div>
-            <div className="mb-[15px] flex flex-col gap-2">
+            </Flex>
+            <Flex mb="15px" flexDir="column" gap="8px">
               <label htmlFor="message">
-                <span className="text-xs font-medium">Message</span>
+                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                  Message
+                </Text>
               </label>
-              <textarea
+              <Textarea
                 id="message"
                 rows={4}
-                className="text-xs font-medium p-2 border border-charcoal rounded-[8px]"
+                fontSize="xs"
+                lineHeight="xs"
+                fontWeight="medium"
+                p="8px"
+                borderWidth="1px"
+                borderColor="charcoal"
+                rounded="xs"
                 value={formData.message}
-                onChange={handleChangeTextInputs("message")}
+                onChange={handleChangeTextInputs('message')}
                 placeholder="Enter your message"
+                _hover={{
+                  borderColor: 'charcoal',
+                }}
               />
-            </div>
-            <div className="flex justify-around">
+            </Flex>
+            <Flex justifyContent="space-around">
               <Button onClick={() => setShowModal(false)}>Close</Button>
               <Button
-                className="border hover:border-charcoal"
+                borderWidth="1px"
+                _hover={{
+                  borderColor: 'charcoal',
+                }}
                 onClick={handleSubmit}
               >
                 Send
               </Button>
-            </div>
+            </Flex>
             {errors.submit && (
-              <p className="mt-[10px] text-xs text-coral font-medium text-center">
+              <Text mt="10px" fontSize="xs" lineHeight="xs" color="coral" fontWeight="medium" textAlign="center">
                 {errors.submit}
-              </p>
+              </Text>
             )}
-          </div>
-        </div>
+          </Box>
+        </Center>
       )}
     </>
   );

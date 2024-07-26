@@ -1,15 +1,24 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { Box } from '@chakra-ui/react';
 
 export const Phone = () => (
-  <div className="relative rounded-[24px] overflow-hidden min-w-[482px]">
+  <Box position="relative" rounded="base" overflow="hidden" minW="482px">
     <Image src="/images/MobilePhone.jpg" alt="phone-background" width={482} height={643} style={{ zIndex: 1 }} />
     <Image
       src="/images/App.png"
       alt="phone-app"
       width={544}
       height={1172}
-      style={{ zIndex: 2, borderColor: '#FF0033' }}
-      className="absolute w-[332px] h-[720px] top-[47px] left-[75px] border border-w-2 rounded-[38px]"
+      style={{
+        zIndex: 2,
+        position: 'absolute',
+        width: '332px',
+        height: '720px',
+        top: '47px',
+        left: '75px',
+        border: '1px solid #FF0033',
+        borderRadius: '38px',
+      }}
     />
-  </div>
-)
+  </Box>
+);

@@ -1,22 +1,36 @@
 import Image from 'next/image';
+import { Flex, Text, Center } from '@chakra-ui/react';
 
 export const Article = ({ imageSrc, title, text, bgColor, revert }) => (
-  <article
-    className={`flex gap-5 justify-center py-[25px] rounded-[24px] ${revert ? 'flex-row-reverse' : ''}`}
-    style={{backgroundColor: bgColor}}
+  <Flex
+    as="article"
+    gap="20px"
+    justifyContent="center"
+    py="25px"
+    rounded="base"
+    flexDirection={revert ? 'row-reverse' : ''}
+    bgColor={bgColor}
   >
-    <div className="flex flex-col justify-center gap-5 w-[540px]">
+    <Flex flexDir="column" justifyContent="center" gap="20px" w="540px">
       {title}
-      <p className="text-base font-light">{text}</p>
-    </div>
-    <div className="w-[480px] h-[250px] flex justify-center items-center">
+      <Text fontSize="base" lineHeight="base" fontWeight="light">
+        {text}
+      </Text>
+    </Flex>
+    <Center w="480px" h="250px" className="w-[480px] h-[250px]">
       <Image
         src={imageSrc}
         alt={text}
         width={480}
         height={360}
-        className="object-contain w-full h-auto max-w-[480px] max-h-[250px]"
+        style={{
+          width: '100%',
+          height: 'auto',
+          maxWidth: '480px',
+          maxHeight: '250px',
+          objectFit: 'contain',
+        }}
       />
-    </div>
-  </article>
-)
+    </Center>
+  </Flex>
+);

@@ -1,17 +1,20 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { Flex, Box } from '@chakra-ui/react';
 
 export const Logos = ({ logos }) => (
-  <div className="flex justify-center gap-8">
+  <Flex justifyContent="center" gap="32px">
     {logos.map(({ id, imageSrc }) => (
-      <div key={id}>
+      <Box key={id}>
         <Image
-          className="rounded-[6px]"
           src={imageSrc}
           alt={`logo-${id}`}
           width={120}
           height={90}
+          style={{
+            borderRadius: '6px',
+          }}
         />
-      </div>
+      </Box>
     ))}
-  </div>
+  </Flex>
 );

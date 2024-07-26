@@ -1,20 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import './fonts.css';
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
-
-:root {
-  --base-bg: #F2EFE8;
-  --base-text-charcoal: #29262C;
-}
-
-body {
-  background: var(--base-bg);
-  color: var(--base-text-charcoal);
-  font-family: 'Tomato Grotesk', sans-serif;
-}
+@import 'fonts.css';
+@import "../../../../node_modules/slick-carousel/slick/slick.css";
+@import "../../../../node_modules/slick-carousel/slick/slick-theme.css";
 
 .testimonials .slick-track {
   display: flex;

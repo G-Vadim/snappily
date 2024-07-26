@@ -1,1 +1,7 @@
-export const BaseContainer = ({ children }) => <div className={`w-[1320px] mx-auto`}>{children}</div>;
+import { Box } from '@chakra-ui/react';
+
+export const BaseContainer = ({ children }) => (
+  <Box w="1320px" mx="auto">
+    {children}
+  </Box>
+);

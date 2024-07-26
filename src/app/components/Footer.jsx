@@ -1,49 +1,66 @@
-import Link from "next/link";
+import Link from 'next/link';
+import { Flex, UnorderedList, ListItem, Text, Box } from '@chakra-ui/react';
 
 import { BigLogoIcon } from './icons';
 
 export const Footer = () => (
-  <footer className="py-20 flex flex-col gap-16">
+  <Flex as="footer" flexDir="column" py="80px" gap="64px">
     <nav>
-      <ul className="flex justify-center gap-[133px]">
-        <li className="w-[146px] text-center">
-          <Link href="/home-movers" className="text-xs font-medium">For Home Movers</Link>
-        </li>
-        <li className="w-[146px] text-center">
-          <Link href="/partners" className="text-xs font-medium">For Partners</Link>
-        </li>
-        <li className="w-[146px] text-center">
-          <Link href="/about-us" className="text-xs font-medium">About Us</Link>
-        </li>
-        <li className="w-[146px] text-center">
-          <Link href="/faq" className="text-xs font-medium">FAQs</Link>
-        </li>
-      </ul>
+      <UnorderedList display="flex" justifyContent="center" gap="133px" styleType="none" ml="0">
+        <ListItem w="146px" textAlign="center">
+          <Link href="/home-movers">
+            <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+              For Home Movers
+            </Text>
+          </Link>
+        </ListItem>
+        <ListItem w="146px" textAlign="center">
+          <Link href="/partners">
+            <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+              For Partners
+            </Text>
+          </Link>
+        </ListItem>
+        <ListItem w="146px" textAlign="center">
+          <Link href="/about-us">
+            <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+              About Us
+            </Text>
+          </Link>
+        </ListItem>
+        <ListItem w="146px" textAlign="center">
+          <Link href="/faq">
+            <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+              FAQs
+            </Text>
+          </Link>
+        </ListItem>
+      </UnorderedList>
     </nav>
-    <div className="flex justify-center gap-11">
-      <Link
-        href="https://www.linkedin.com/company/snappilyuk/?viewAsMember=true"
-        target="_blank"
-        className="text-xl font-semibold tracking-[0.2px]"
-      >
-        Linkedin
+    <Flex justifyContent="center" gap="44px">
+      <Link href="https://www.linkedin.com/company/snappilyuk/?viewAsMember=true" target="_blank">
+        <Text fontSize="xl" fontWeight="semibold" letterSpacing="0.2px" lineHeight="xl">
+          Linkedin
+        </Text>
       </Link>
-      <Link
-        href="https://www.instagram.com/snappily_uk?igsh=aGZmNDgxdzRqcGtx"
-        target="_blank"
-        className="text-xl font-semibold tracking-[0.2px]"
-      >
-        Instagram
+      <Link href="https://www.instagram.com/snappily_uk?igsh=aGZmNDgxdzRqcGtx" target="_blank">
+        <Text fontSize="xl" fontWeight="semibold" letterSpacing="0.2px" lineHeight="xl">
+          Instagram
+        </Text>
       </Link>
-    </div>
+    </Flex>
     <Link href="/">
       <BigLogoIcon />
     </Link>
-    <div className="flex">
-      <div>
-        <p className="text-sm font-medium tracking-[0.11px]">© 2023 Move Genius Holdings Limited. All rights reserved.</p>
-        <p className="text-sm font-medium tracking-[0.11px]">Company registration number: 14083514 VAT number: 423872882</p>
-      </div>
-    </div>
-  </footer>
-)
+    <Flex>
+      <Box>
+        <Text fontSize="sm" fontWeight="medium" letterSpacing="0.11px" lineHeight="sm">
+          © 2023 Move Genius Holdings Limited. All rights reserved.
+        </Text>
+        <Text fontSize="sm" fontWeight="medium" letterSpacing="0.11px" lineHeight="sm">
+          Company registration number: 14083514 VAT number: 423872882
+        </Text>
+      </Box>
+    </Flex>
+  </Flex>
+);

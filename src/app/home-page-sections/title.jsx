@@ -1,7 +1,8 @@
 'use client';
-import { useState, useEffect, useMemo } from "react";
-import Slider from "react-slick";
-import Image from "next/image";
+import { useState, useEffect, useMemo } from 'react';
+import Slider from 'react-slick';
+import Image from 'next/image';
+import { Flex, Box, Text } from '@chakra-ui/react';
 
 export const Title = ({ text, imageSrc }) => {
   const [autoplaySpeed, setAutoplaySpeed] = useState(200);
@@ -10,39 +11,54 @@ export const Title = ({ text, imageSrc }) => {
     setTimeout(() => setAutoplaySpeed(1600), 1100);
   }, []);
 
-  const settings = useMemo(() => ({
-    dots: false,
-    arrows: false,
-    infinite: true,
-    vertical: true,
-    verticalSwiping: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 800,
-    autoplaySpeed: autoplaySpeed,
-    cssEase: "linear"
-  }), [autoplaySpeed]);
+  const settings = useMemo(
+    () => ({
+      dots: false,
+      arrows: false,
+      infinite: true,
+      vertical: true,
+      verticalSwiping: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 800,
+      autoplaySpeed: autoplaySpeed,
+      cssEase: 'linear',
+    }),
+    [autoplaySpeed]
+  );
 
   return (
-    <section className="flex justify-between pl-[168px] pr-[110px] mb-20">
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col">
-          <div className="flex gap-2 max-w-[585px] mt-[70px]">
-            <h1 className="text-3xl font-bold -tracking-[2px] inline">Snappily{' '}</h1>
-            <div className="inline">
+    <Flex as="section" justifyContent="space-between" pl="168px" pr="110px" mb="80px">
+      <Flex flexDir="column" gap="24px">
+        <Flex flexDir="column">
+          <Flex gap="8px" maxW="620px" mt="70px">
+            <Text as="h1" fontSize="3xl" lineHeight="3xl" fontWeight="bold" letterSpacing="-2px" display="inline">
+              Snappily{' '}
+            </Text>
+            <Box display="inline">
               <Slider {...settings}>
-                <span className="text-3xl font-bold -tracking-[2px] text-coral">Simplifies</span>
-                <span className="text-3xl font-bold -tracking-[2px] text-coral">Automates</span>
-                <span className="text-3xl font-bold -tracking-[2px] text-coral">Accelerates</span>
+                <Text as="span" fontSize="3xl" lineHeight="3xl" fontWeight="bold" letterSpacing="-2px" color="coral">
+                  Simplifies
+                </Text>
+                <Text as="span" fontSize="3xl" lineHeight="3xl" fontWeight="bold" letterSpacing="-2px" color="coral">
+                  Automates
+                </Text>
+                <Text as="span" fontSize="3xl" lineHeight="3xl" fontWeight="bold" letterSpacing="-2px" color="coral">
+                  Accelerates
+                </Text>
               </Slider>
-            </div>
-          </div>
-          <h1 className="text-3xl font-bold -tracking-[2px] max-w-[585px]">Compliance: One Task at a Time</h1>
-        </div>
-        <p className="text-base max-w-[483px] font-light">{text}</p>
-      </div>
-      <Image src={imageSrc} alt="home-title" width={357} height={448}/>
-    </section>
+            </Box>
+          </Flex>
+          <Text as="h1" fontSize="3xl" lineHeight="3xl" fontWeight="bold" letterSpacing="-2px" maxW="585px">
+            Compliance: One Task at a Time
+          </Text>
+        </Flex>
+        <Text fontSize="base" lineHeight="base" maxW="483px" fontWeight="light">
+          {text}
+        </Text>
+      </Flex>
+      <Image src={imageSrc} alt="home-title" width={357} height={448} />
+    </Flex>
   );
 };

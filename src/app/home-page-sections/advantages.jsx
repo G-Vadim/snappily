@@ -1,11 +1,11 @@
-import { Article } from "@/app/components/Article";
+import { Flex } from '@chakra-ui/react';
+
+import { Article } from '@/app/components/Article';
 
 export const Advantages = ({ items }) => (
-  <section className="flex flex-col gap-6">
-    {
-      items.map((item, i) => (
-        <Article key={i} {...item}/>
-      ))
-    }
-  </section>
+  <Flex as="section" flexDir="column" gap="24px">
+    {items.map((item, i) => (
+      <Article key={i} {...item} />
+    ))}
+  </Flex>
 );

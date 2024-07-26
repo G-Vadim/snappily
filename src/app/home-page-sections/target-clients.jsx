@@ -1,20 +1,35 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { Flex, Text, Center } from '@chakra-ui/react';
 
-import { Button } from "@/app/components/Button";
+import { Button } from '@/app/components/Button';
 
 export const TargetClients = ({ targetClients }) => (
-  <section className="flex gap-4">
-    {
-      targetClients.map(({ id, title, imageSrc, text }) => (
-        <div key={id} className="flex flex-col py-[64px] px-20 items-center gap-6 rounded-[24px] bg-white w-[650px] h-[650px]">
-          <h3 className="text-semi-md text-coral font-bold">{title}</h3>
-          <div className="flex justify-center items-center h-[350px]">
-            <Image src={imageSrc} alt={title} width={400} height={262} className="h-[205px]"/>
-          </div>
-          <p className="text-base font-light text-center">{text}</p>
-          <Button className="bg-black text-white font-semibold">Find out more</Button>
-        </div>
-      ))
-    }
-  </section>
+  <Flex as="section" gap="16px">
+    {targetClients.map(({ id, title, imageSrc, text }) => (
+      <Flex
+        key={id}
+        flexDir="column"
+        py="64px"
+        px="80px"
+        alignItems="center"
+        gap="24px"
+        rounded="base"
+        bgColor="white"
+        boxSize="650px"
+      >
+        <Text as="h3" fontSize="semi-md" lineHeight="semi-md" color="coral" fontWeight="bold">
+          {title}
+        </Text>
+        <Center h="350px">
+          <Image src={imageSrc} alt={title} width={400} height={262} style={{ height: '205px' }} />
+        </Center>
+        <Text fontSize="base" lineHeight="base" fontWeight="light" textAlign="center">
+          {text}
+        </Text>
+        <Button bgColor="black" color="white" fontWeight="semibold">
+          Find out more
+        </Button>
+      </Flex>
+    ))}
+  </Flex>
 );

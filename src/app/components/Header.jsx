@@ -1,31 +1,50 @@
-import Link from 'next/link';
+import BaseLink from 'next/link';
+import { Flex, UnorderedList, ListItem, Text } from '@chakra-ui/react';
 
-import { BookDemoModal } from "@/app/components/modals/BookDemoModal";
+import { BookDemoModal } from '@/app/components/modals/BookDemoModal';
 import { SmallLogoIcon } from './icons';
 
-export const Header = () => (
-  <header className="mt-6 flex justify-between items-center">
-    <Link href="/">
-      <SmallLogoIcon />
-    </Link>
-    <nav>
-      <ul className="flex gap-6">
-        <li>
-          <Link href="/home-movers" className="text-xs font-medium">For Home Movers</Link>
-        </li>
-        <li>
-          <Link href="/partners" className="text-xs font-medium">For Partners</Link>
-        </li>
-        <li>
-          <Link href="/about-us" className="text-xs font-medium">About Us</Link>
-        </li>
-        <li>
-          <Link href="/faq" className="text-xs font-medium">FAQs</Link>
-        </li>
-      </ul>
-    </nav>
-    <div className="flex gap-6 items-center">
-      <BookDemoModal />
-    </div>
-  </header>
-);
+export const Header = () => {
+  return (
+    <Flex as="header" justify="space-between" alignItems="center" mt="24px">
+      <BaseLink href="/">
+        <SmallLogoIcon />
+      </BaseLink>
+      <nav>
+        <UnorderedList display="flex" gap="24px" styleType="none" ml="0">
+          <ListItem>
+            <BaseLink href="/home-movers">
+              <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                For Home Movers
+              </Text>
+            </BaseLink>
+          </ListItem>
+          <ListItem>
+            <BaseLink href="/partners">
+              <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                For Partners
+              </Text>
+            </BaseLink>
+          </ListItem>
+          <ListItem>
+            <BaseLink href="/about-us">
+              <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                About Us
+              </Text>
+            </BaseLink>
+          </ListItem>
+          <ListItem>
+            <BaseLink href="/faq">
+              <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                FAQs
+              </Text>
+            </BaseLink>
+          </ListItem>
+        </UnorderedList>
+      </nav>
+      <Flex>
+        <BookDemoModal />
+      </Flex>
+    </Flex>
+  );
+};

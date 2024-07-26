@@ -1,19 +1,22 @@
-"use client";
+'use client';
 import { useState } from 'react';
+import { Flex, Text } from '@chakra-ui/react';
 
-import { BaseContainer } from '../components/BaseContainer';
-import { PageTitle } from '../components/PageTitle';
-import { TogetherSection } from '../components/TogetherSection';
-import { faq } from '../data';
+import { BaseContainer } from '@/app/components/BaseContainer';
+import { PageTitle } from '@/app/components/PageTitle';
+import { TogetherSection } from '@/app/components/TogetherSection';
+import { faq } from '@/app/data';
 
 const Answer = ({ id, title, children }) => (
-  <article className="flex flex-col gap-2" id={id}>
-    <h3 className="text-md text-coral font-bold">{title}</h3>
-    <div className="flex flex-col gap-5 text-xs leading-[22px] font-light">
+  <Flex as="article" flexDir="column" gap="8px" id={id}>
+    <Text as="h3" fontSize="md" lineHeight="md" color="coral" fontWeight="bold">
+      {title}
+    </Text>
+    <Flex flexDir="column" gap="20px" fontSize="xs" lineHeight="22px" fontWeight="light">
       {children}
-    </div>
-  </article>
-)
+    </Flex>
+  </Flex>
+);
 
 const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState(faq.questions[0].id);
@@ -27,27 +30,36 @@ const FAQ = () => {
   return (
     <>
       <BaseContainer>
-        <PageTitle {...faq.header}/>
-        <section className="mt-[75px] pt-20 flex gap-5 border-t border-t-1 border-t-[rgba(41, 38, 44, 0.1)]">
-          <div className="flex flex-col gap-2 sticky top-10 min-w-[483px] h-fit">
+        <PageTitle {...faq.header} />
+        <Flex as="section" mt="75px" pt="80px" gap="20px" borderTop="1px" borderColor="rgba(41, 38, 44, 0.1)">
+          <Flex flexDir="column" gap="8px" position="sticky" top="40px" minW="483px" h="fit-content">
             {faq.questions.map(({ id, text }) => (
-              <h4
+              <Text
+                as="h4"
                 key={id}
-                className={`text-xs font-light leading-[22px] hover:cursor-pointer${activeQuestion === id ? ' text-coral': '' }`}
+                fontSize="xs"
+                lineHeight="22px"
+                fontWeight="light"
+                _hover={{
+                  cursor: 'pointer',
+                }}
+                color={activeQuestion === id ? 'coral' : ''}
                 onClick={() => handleClickQuestion(id)}
               >
                 {text}
-              </h4>
+              </Text>
             ))}
-          </div>
-          <div className="flex flex-col gap-20">
+          </Flex>
+          <Flex flexDir="column" gap="80px">
             {faq.questions.map(({ id, text, answer }, i) => (
-              <Answer key={i} id={id} title={text}>{answer}</Answer>
+              <Answer key={i} id={id} title={text}>
+                {answer}
+              </Answer>
             ))}
-          </div>
-        </section>
+          </Flex>
+        </Flex>
       </BaseContainer>
-      <TogetherSection/>
+      <TogetherSection />
     </>
   );
 };

@@ -1,8 +1,27 @@
-export const KeysList = ({keys}) => (
-  <section
-    className="flex justify-between py-4 px-[42px] items-center border border-w-2 border-dashed rounded-[24px]"
-    style={{borderColor: 'rgba(0, 0, 0, 0.24)'}}
+import { Flex, Box, Text } from '@chakra-ui/react';
+
+export const KeysList = ({ keys }) => (
+  <Flex
+    as="section"
+    justifyContent="space-between"
+    alignItems="center"
+    py="16px"
+    px="42px"
+    borderWidth="1px"
+    borderStyle="dashed"
+    borderColor="rgba(0, 0, 0, 0.24)"
+    rounded="base"
   >
-    {keys.map(({id, content, isIcon}) => <div key={id}>{isIcon ? content : <span className="text-semi-md font-semibold -tracking-[2px]">{content}</span>}</div>)}
-  </section>
+    {keys.map(({ id, content, isIcon }) => (
+      <Box key={id}>
+        {isIcon ? (
+          content
+        ) : (
+          <Text as="span" fontSize="semi-md" lineHeight="semi-md" fontWeight="semibold" letterSpacing="-2px">
+            {content}
+          </Text>
+        )}
+      </Box>
+    ))}
+  </Flex>
 );
