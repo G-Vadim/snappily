@@ -1,10 +1,17 @@
 import BaseLink from 'next/link';
 import { Flex, UnorderedList, ListItem, Text } from '@chakra-ui/react';
 
+import { useMobile } from '@/app/utils/useMobile';
 import { BookDemoModal } from '@/app/components/modals/BookDemoModal';
 import { SmallLogoIcon } from './icons';
 
 export const Header = () => {
+  const isMobile = useMobile();
+
+  if () {
+
+  }
+
   return (
     <Flex as="header" justify="space-between" alignItems="center" mt="24px">
       <BaseLink href="/">
