@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Select from 'react-select';
-import { Flex, Text, Center, Box, Input, Textarea } from '@chakra-ui/react';
+import { Flex, Text, Center, Box, Input, Textarea, Checkbox, useBoolean } from '@chakra-ui/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Button } from '@/app/components/Button';
 
@@ -33,10 +34,12 @@ const colourStyles = {
 };
 
 const initialForm = {
-  name: '',
-  email: '',
   enquiryType: typeOptions[0],
+  email: '',
+  contactNumber: '',
+  name: '',
   message: '',
+  subscribeToNewsletter: false,
 };
 
 const defaultErrors = {
@@ -48,6 +51,7 @@ export const BookDemoModal = () => {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState(defaultErrors);
+  const [isFormFullHeight, setFormFullHeight] = useBoolean(true);
 
   const handleChangeForm = (key, value) => {
     setFormData((prevState) => ({ ...prevState, [key]: value }));
@@ -58,18 +62,28 @@ export const BookDemoModal = () => {
     handleChangeForm(key, value);
   };
 
+  const handleChangeCheckbox = (event) => {
+    const { checked } = event.target;
+    handleChangeForm('subscribeToNewsletter', checked);
+  };
+
   const handleChangeSelect = (opt) => {
     handleChangeForm('enquiryType', opt);
+    setFormFullHeight.off();
   };
+
+  const isFullForm = useMemo(() => formData.enquiryType.value === typeOptions[0].value, [formData.enquiryType.value]);
 
   const handleSubmit = async () => {
     setErrors(defaultErrors);
+    let emailError = false;
 
     if (!formData.email) {
       setErrors((prevState) => ({
         ...prevState,
         email: 'This field is required!',
       }));
+      emailError = true;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -77,22 +91,32 @@ export const BookDemoModal = () => {
         ...prevState,
         email: 'The format is wrong!',
       }));
+      emailError = true;
     }
 
-    if (!errors.email) {
+    if (!emailError) {
       try {
+        let data = {
+          email: formData.email,
+        };
+
+        if (isFullForm) {
+          data = {
+            ...formData,
+            enquiryType: formData.enquiryType.value,
+          };
+        }
+
         await fetch(url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            ...formData,
-            enquiryType: formData.enquiryType.value,
-          }),
+          body: JSON.stringify(data),
         });
         setFormData(initialForm);
         setShowModal(false);
+        setErrors(defaultErrors);
       } catch (e) {
         setErrors((prevState) => ({
           ...prevState,
@@ -104,7 +128,14 @@ export const BookDemoModal = () => {
 
   return (
     <>
-      <Button color="coral" bgColor="white" onClick={() => setShowModal(true)}>
+      <Button
+        color="coral"
+        bgColor="white"
+        onClick={() => {
+          setShowModal(true);
+          setErrors(defaultErrors);
+        }}
+      >
         Book a demo
       </Button>
       {showModal && (
@@ -116,7 +147,9 @@ export const BookDemoModal = () => {
           h="100%"
           zIndex={1}
           bgColor="rgba(0, 0, 0, 0.3)"
-          onClick={() => setShowModal(false)}
+          onClick={() => {
+            setShowModal(false);
+          }}
         >
           <Box
             w="500px"
@@ -127,115 +160,140 @@ export const BookDemoModal = () => {
               e.stopPropagation();
             }}
           >
-            <Flex mb="15px" flexDir="column" gap="8px">
-              <label htmlFor="email">
-                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
-                  Email{' '}
-                </Text>
-                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium" color="coral">
-                  *
-                </Text>
-                {errors.email && (
-                  <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="light" color="coral">
-                    {' '}
-                    {errors.email}
+            <motion.div
+              initial={{ height: '545px' }}
+              animate={{ height: isFullForm ? '545px' : '200px' }}
+              onAnimationComplete={() => isFullForm && setFormFullHeight.on()}
+            >
+              <Flex mb="15px" flexDir="column" gap="8px">
+                <label htmlFor="type">
+                  <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                    Type
                   </Text>
+                </label>
+                <Select
+                  options={typeOptions}
+                  value={formData.enquiryType}
+                  onChange={handleChangeSelect}
+                  styles={colourStyles}
+                />
+              </Flex>
+              <Flex mb="15px" flexDir="column" gap="8px">
+                <label htmlFor="email">
+                  <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                    Email{' '}
+                  </Text>
+                  <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium" color="coral">
+                    *
+                  </Text>
+                  {errors.email && (
+                    <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="light" color="coral">
+                      {' '}
+                      {errors.email}
+                    </Text>
+                  )}
+                </label>
+                <Input
+                  id="email"
+                  type="text"
+                  fontSize="xs"
+                  lineHeight="xs"
+                  fontWeight="medium"
+                  p="8px"
+                  borderWidth="1px"
+                  borderColor={errors.email ? 'coral' : 'charcoal'}
+                  rounded="xs"
+                  value={formData.email}
+                  onChange={handleChangeTextInputs('email')}
+                  placeholder="Enter your email"
+                />
+              </Flex>
+              <AnimatePresence>
+                {isFullForm && isFormFullHeight && (
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: isFullForm ? 1 : 0 }}>
+                    <Flex mb="15px" flexDir="column" gap="8px">
+                      <label htmlFor="contactNumber">
+                        <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                          Phone number
+                        </Text>
+                      </label>
+                      <Input
+                        id="contactNumber"
+                        type="text"
+                        fontSize="xs"
+                        lineHeight="xs"
+                        fontWeight="medium"
+                        p="8px"
+                        borderWidth="1px"
+                        borderColor="charcoal"
+                        rounded="xs"
+                        value={formData.contactNumber}
+                        onChange={handleChangeTextInputs('contactNumber')}
+                        placeholder="Enter your phone number"
+                      />
+                    </Flex>
+                    <Flex mb="15px" flexDir="column" gap="8px">
+                      <label htmlFor="name">
+                        <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                          Name
+                        </Text>
+                      </label>
+                      <Input
+                        id="name"
+                        type="text"
+                        fontSize="xs"
+                        lineHeight="xs"
+                        fontWeight="medium"
+                        p="8px"
+                        borderWidth="1px"
+                        borderColor="charcoal"
+                        rounded="xs"
+                        value={formData.name}
+                        onChange={handleChangeTextInputs('name')}
+                        placeholder="Enter your name"
+                      />
+                    </Flex>
+                    <Flex mb="20px" flexDir="column" gap="8px">
+                      <label htmlFor="message">
+                        <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                          Message
+                        </Text>
+                      </label>
+                      <Textarea
+                        id="message"
+                        rows={4}
+                        fontSize="xs"
+                        lineHeight="xs"
+                        fontWeight="medium"
+                        p="8px"
+                        borderWidth="1px"
+                        borderColor="charcoal"
+                        rounded="xs"
+                        value={formData.message}
+                        onChange={handleChangeTextInputs('message')}
+                        placeholder="Enter your message"
+                        _hover={{
+                          borderColor: 'charcoal',
+                        }}
+                      />
+                    </Flex>
+                    <Flex mb="15px" flexDir="column" gap="8px">
+                      <Checkbox
+                        size="lg"
+                        spacing="15px"
+                        alignItems="center"
+                        value={formData.subscribeToNewsletter}
+                        onChange={handleChangeCheckbox}
+                      >
+                        <Text fontSize="xs" fontWeight="medium">
+                          Subscribe to Newsletter
+                        </Text>
+                      </Checkbox>
+                    </Flex>
+                  </motion.div>
                 )}
-              </label>
-              <Input
-                id="email"
-                type="text"
-                fontSize="xs"
-                lineHeight="xs"
-                fontWeight="medium"
-                p="8px"
-                borderWidth="1px"
-                borderColor={errors.email ? 'coral' : 'charcoal'}
-                rounded="xs"
-                value={formData.email}
-                onChange={handleChangeTextInputs('email')}
-                placeholder="Enter your email"
-              />
-            </Flex>
-            <Flex mb="15px" flexDir="column" gap="8px">
-              <label htmlFor="contactNumber">
-                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
-                  Phone number
-                </Text>
-              </label>
-              <Input
-                id="contactNumber"
-                type="text"
-                fontSize="xs"
-                lineHeight="xs"
-                fontWeight="medium"
-                p="8px"
-                borderWidth="1px"
-                borderColor="charcoal"
-                rounded="xs"
-                value={formData.contactNumber}
-                onChange={handleChangeTextInputs('contactNumber')}
-                placeholder="Enter your phone number"
-              />
-            </Flex>
-            <Flex mb="15px" flexDir="column" gap="8px">
-              <label htmlFor="name">
-                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
-                  Name
-                </Text>
-              </label>
-              <Input
-                id="name"
-                type="text"
-                fontSize="xs"
-                lineHeight="xs"
-                fontWeight="medium"
-                p="8px"
-                borderWidth="1px"
-                borderColor="charcoal"
-                rounded="xs"
-                value={formData.name}
-                onChange={handleChangeTextInputs('name')}
-                placeholder="Enter your name"
-              />
-            </Flex>
-            <Flex mb="15px" flexDir="column" gap="8px">
-              <label htmlFor="type">
-                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
-                  Type
-                </Text>
-              </label>
-              <Select
-                options={typeOptions}
-                value={formData.enquiryType}
-                onChange={handleChangeSelect}
-                styles={colourStyles}
-              />
-            </Flex>
-            <Flex mb="15px" flexDir="column" gap="8px">
-              <label htmlFor="message">
-                <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
-                  Message
-                </Text>
-              </label>
-              <Textarea
-                id="message"
-                rows={4}
-                fontSize="xs"
-                lineHeight="xs"
-                fontWeight="medium"
-                p="8px"
-                borderWidth="1px"
-                borderColor="charcoal"
-                rounded="xs"
-                value={formData.message}
-                onChange={handleChangeTextInputs('message')}
-                placeholder="Enter your message"
-                _hover={{
-                  borderColor: 'charcoal',
-                }}
-              />
-            </Flex>
+              </AnimatePresence>
+            </motion.div>
             <Flex justifyContent="space-around">
               <Button onClick={() => setShowModal(false)}>Close</Button>
               <Button

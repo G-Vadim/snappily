@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Flex, Box, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 
 export const PageTitle = ({ imageSrc, title, subTitle, note }) => (
   <Flex as="section" flexDir="column" gap="40px" alignItems="center">
