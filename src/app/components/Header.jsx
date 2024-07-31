@@ -10,14 +10,17 @@ import {
   MenuList,
   MenuItem,
   IconButton,
+  useBoolean,
 } from '@chakra-ui/react';
 
 import { useMobile } from '@/app/utils/useMobile';
 import { BookDemoModal } from '@/app/components/modals/BookDemoModal';
 import { SmallLogoIcon, HamburgerIcon } from './icons';
+import { Button } from '@/app/components/Button';
 
 export const Header = () => {
   const isMobile = useMobile();
+  const [showModal, setShowModal] = useBoolean(false);
 
   if (isMobile) {
     return (
@@ -72,8 +75,21 @@ export const Header = () => {
                 </Text>
               </MenuItem>
             </BaseLink>
+            <MenuItem>
+              <Text
+                fontSize="xs"
+                fontWeight="medium"
+                lineHeight="xs"
+                onClick={() => {
+                  setShowModal.on();
+                }}
+              >
+                Book a demo
+              </Text>
+            </MenuItem>
           </MenuList>
         </Menu>
+        <BookDemoModal show={showModal} onClose={() => setShowModal.off()} />
       </Flex>
     );
   }
@@ -115,9 +131,16 @@ export const Header = () => {
           </ListItem>
         </UnorderedList>
       </nav>
-      <Flex>
-        <BookDemoModal />
-      </Flex>
+      <Button
+        color="coral"
+        bgColor="white"
+        onClick={() => {
+          setShowModal.on();
+        }}
+      >
+        Book a demo
+      </Button>
+      <BookDemoModal show={showModal} onClose={() => setShowModal.off()} />
     </Flex>
   );
 };
