@@ -97,12 +97,14 @@ export const BookDemoModal = () => {
     if (!emailError) {
       try {
         let data = {
+          source: 'https://www.snappily.co.uk',
           email: formData.email,
         };
 
         if (isFullForm) {
           data = {
             ...formData,
+            source: 'https://www.snappily.co.uk',
             enquiryType: formData.enquiryType.value,
           };
         }
