@@ -6,18 +6,33 @@ export const Article = ({ imageSrc, title, text, bgColor, revert }) => (
     as="article"
     gap="20px"
     justifyContent="center"
-    py="25px"
+    p={{ base: '32px', md: '25px 0' }}
     rounded="base"
-    flexDirection={revert ? 'row-reverse' : ''}
+    flexDirection={{ base: 'column', md: revert ? 'row-reverse' : 'row' }}
     bgColor={bgColor}
   >
-    <Flex flexDir="column" justifyContent="center" gap="20px" w="540px">
+    <Center display={{ base: 'flex', md: 'none' }}>
+      <Image
+        src={imageSrc}
+        alt={text}
+        width={297}
+        height={270}
+        style={{
+          width: '100%',
+          height: 'auto',
+          maxWidth: '297px',
+          maxHeight: '270px',
+          objectFit: 'contain',
+        }}
+      />
+    </Center>
+    <Flex flexDir="column" justifyContent="center" gap="20px" w={{ base: 'auto', md: '540px' }}>
       {title}
-      <Text fontSize="base" lineHeight="base" fontWeight="light">
+      <Text fontSize={{ base: '16px', md: 'base' }} lineHeight={{ base: '26px', md: 'base' }} fontWeight="light">
         {text}
       </Text>
     </Flex>
-    <Center w="480px" h="250px" className="w-[480px] h-[250px]">
+    <Center w="480px" h="250px" display={{ base: 'none', md: 'flex' }}>
       <Image
         src={imageSrc}
         alt={text}

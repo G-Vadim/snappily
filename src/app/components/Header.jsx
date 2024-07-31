@@ -1,15 +1,81 @@
+'use client';
 import BaseLink from 'next/link';
-import { Flex, UnorderedList, ListItem, Text } from '@chakra-ui/react';
+import {
+  Flex,
+  UnorderedList,
+  ListItem,
+  Text,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+} from '@chakra-ui/react';
 
 import { useMobile } from '@/app/utils/useMobile';
 import { BookDemoModal } from '@/app/components/modals/BookDemoModal';
-import { SmallLogoIcon } from './icons';
+import { SmallLogoIcon, HamburgerIcon } from './icons';
 
 export const Header = () => {
   const isMobile = useMobile();
 
-  if () {
-
+  if (isMobile) {
+    return (
+      <Flex
+        p="16px"
+        w="full"
+        justifyContent="space-between"
+        boxShadow="0 -5px 38px 0 rgba(0, 0, 0, 0.2)"
+        borderBottom="1px solid #BFBFBF"
+        position="fixed"
+        bgColor="base"
+        zIndex="3"
+      >
+        <BaseLink href="/">
+          <SmallLogoIcon />
+        </BaseLink>
+        <Menu>
+          <MenuButton
+            h="32px"
+            minW="32px"
+            as={IconButton}
+            aria-label="Options"
+            icon={<HamburgerIcon />}
+            bgColor="base"
+          />
+          <MenuList>
+            <BaseLink href="/home-movers">
+              <MenuItem>
+                <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                  For Home Movers
+                </Text>
+              </MenuItem>
+            </BaseLink>
+            <BaseLink href="/partners">
+              <MenuItem>
+                <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                  For Partners
+                </Text>
+              </MenuItem>
+            </BaseLink>
+            <BaseLink href="/about-us">
+              <MenuItem>
+                <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                  About Us
+                </Text>
+              </MenuItem>
+            </BaseLink>
+            <BaseLink href="/faq">
+              <MenuItem>
+                <Text fontSize="xs" fontWeight="medium" lineHeight="xs">
+                  FAQs
+                </Text>
+              </MenuItem>
+            </BaseLink>
+          </MenuList>
+        </Menu>
+      </Flex>
+    );
   }
 
   return (

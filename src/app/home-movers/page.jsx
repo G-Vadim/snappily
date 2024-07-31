@@ -48,17 +48,30 @@ const TransactionProcess = ({ title, items }) => (
 
 const HomeMovers = () => (
   <>
-    <BaseContainer>
+    <BaseContainer p={{ base: '16px', md: '0' }} mb={{ base: '24px', md: '0' }}>
       <PageTitle {...homeMovers.header} />
-      <Flex as="section" flexDir="column" gap="24px" mt="75px">
+      <Flex as="section" flexDir="column" gap="24px" mt={{ base: '40px', md: '75px' }}>
         {homeMovers.articles.map(({ id, ...item }, i) => (
           <Article key={id} revert={!(i % 2)} {...item} />
         ))}
       </Flex>
-      <Center as="section" gap="48px" mt="144px">
+      <Flex
+        as="section"
+        gap="48px"
+        mt={{ base: '40px', md: '144px' }}
+        justifyContent="center"
+        flexDir={{ base: 'column-reverse', md: 'row' }}
+      >
         <Phone />
-        <Flex flexDir="column" gap="40px" w="437px">
-          <Text as="h2" fontSize="2xl" lineHeight="2xl" fontWeight="bold" letterSpacing="-2px" maxW="350px">
+        <Flex flexDir="column" gap={{ base: '24px', md: '40px' }} w={{ base: 'auto', md: '437px' }}>
+          <Text
+            as="h2"
+            fontSize={{ base: 'semi-md', md: '2xl' }}
+            lineHeight={{ base: '40px', md: '2xl' }}
+            fontWeight="bold"
+            letterSpacing="-2px"
+            maxW="350px"
+          >
             Here’s{' '}
             <Text as="span" color="coral">
               how
@@ -66,7 +79,7 @@ const HomeMovers = () => (
             our service works
           </Text>
           <Flex flexDir="column" gap="32px">
-            <Text fontSize="base" lineHeight="base" fontWeight="light">
+            <Text fontSize={{ base: '16px', md: 'base' }} lineHeight={{ base: '26px', md: 'base' }} fontWeight="light">
               Our Home Mover App is your one-stop hub for managing initial compliance tasks for your move, all with just
               a few clicks.
               <br />
@@ -82,8 +95,8 @@ const HomeMovers = () => (
             {/*<PlatformButtons />*/}
           </Flex>
         </Flex>
-      </Center>
-      <Box as="section" mt="140px">
+      </Flex>
+      <Box as="section" mt="140px" display={{ base: 'none', md: 'block' }}>
         <TransactionProcess {...homeMovers.transactionProcess} />
       </Box>
     </BaseContainer>

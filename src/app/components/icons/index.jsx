@@ -14,6 +14,9 @@ import { SmallLogoIcon } from './SmallLogoIcon';
 import { StarIcon } from './StarIcon';
 import { StepsIcon } from './StepsIcon';
 import { TableIcon } from './TableIcon';
+import { HamburgerIcon } from './HamburgerIcon';
+import { CircleAddIcon } from './CircleAddIcon';
+import { CircleRemoveIcon } from './CircleRemoveIcon';
 
 export {
   AppleIcon,
@@ -31,5 +34,8 @@ export {
   SmallLogoIcon,
   StarIcon,
   StepsIcon,
-  TableIcon
+  TableIcon,
+  HamburgerIcon,
+  CircleAddIcon,
+  CircleRemoveIcon,
 };

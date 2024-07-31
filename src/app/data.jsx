@@ -51,7 +51,13 @@ export const homeMovers = {
       id: 1,
       imageSrc: '/images/IDCheck.png',
       title: (
-        <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+        <Text
+          as="h2"
+          fontSize={{ base: 'md', md: 'lg' }}
+          lineHeight={{ base: 'md', md: 'lg' }}
+          fontWeight="bold"
+          letterSpacing={{ base: '-1px', md: '-2px' }}
+        >
           <Text as="span" color="coral">
             Swift{' '}
           </Text>
@@ -65,7 +71,13 @@ export const homeMovers = {
       id: 2,
       imageSrc: '/images/ScreenWithList.png',
       title: (
-        <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+        <Text
+          as="h2"
+          fontSize={{ base: 'md', md: 'lg' }}
+          lineHeight={{ base: 'md', md: 'lg' }}
+          fontWeight="bold"
+          letterSpacing={{ base: '-1px', md: '-2px' }}
+        >
           <Text as="span" color="coral">
             Secure{' '}
           </Text>
@@ -79,7 +91,13 @@ export const homeMovers = {
       id: 3,
       imageSrc: '/images/Rabbit.png',
       title: (
-        <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+        <Text
+          as="h2"
+          fontSize={{ base: 'md', md: 'lg' }}
+          lineHeight={{ base: 'md', md: 'lg' }}
+          fontWeight="bold"
+          letterSpacing={{ base: '-1px', md: '-2px' }}
+        >
           <Text as="span" color="coral">
             Speed Up{' '}
           </Text>
@@ -104,7 +122,13 @@ export const partners = {
       id: 1,
       imageSrc: '/images/Paper.png',
       title: (
-        <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+        <Text
+          as="h2"
+          fontSize={{ base: 'md', md: 'lg' }}
+          lineHeight={{ base: 'md', md: 'lg' }}
+          fontWeight="bold"
+          letterSpacing={{ base: '-1px', md: '-2px' }}
+        >
           <Text as="span" color="coral">
             Streamline{' '}
           </Text>
@@ -118,7 +142,13 @@ export const partners = {
       id: 2,
       imageSrc: '/images/Rabbit.png',
       title: (
-        <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+        <Text
+          as="h2"
+          fontSize={{ base: 'md', md: 'lg' }}
+          lineHeight={{ base: 'md', md: 'lg' }}
+          fontWeight="bold"
+          letterSpacing={{ base: '-1px', md: '-2px' }}
+        >
           <Text as="span" color="coral">
             Boost{' '}
           </Text>
@@ -132,7 +162,13 @@ export const partners = {
       id: 3,
       imageSrc: '/images/HappyCallCenter.png',
       title: (
-        <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+        <Text
+          as="h2"
+          fontSize={{ base: 'md', md: 'lg' }}
+          lineHeight={{ base: 'md', md: 'lg' }}
+          fontWeight="bold"
+          letterSpacing={{ base: '-1px', md: '-2px' }}
+        >
           <Text as="span" color="coral">
             Enhance{' '}
           </Text>
@@ -172,7 +208,7 @@ export const faq = {
       text: 'What is Snappily?',
       answer: (
         <>
-          <Text>
+          <Text fontWeight="light">
             We&apos;re a tech company dedicated to providing a seamless experience for home movers, minimising paperwork
             and providing clear guidance for UK property transactions. We partner with estate agencies nationwide to
             assist home buyers and sellers in the initial phase of the home moving process so you can:
@@ -182,27 +218,33 @@ export const faq = {
               <Text as="span" fontWeight="semibold">
                 Say goodbye to the hassle of paperwork.
               </Text>{' '}
-              Snappily lets you swiftly complete all essential documents digitally, right from home. Designed to be
-              easy-to-use and free of legal jargon, Snappily makes the process smooth and stress-free.
+              <Text fontWeight="light">
+                Snappily lets you swiftly complete all essential documents digitally, right from home. Designed to be
+                easy-to-use and free of legal jargon, Snappily makes the process smooth and stress-free.
+              </Text>
             </ListItem>
             <ListItem>
               <Text as="span" fontWeight="semibold">
                 Speed Up Your Transaction:
               </Text>{' '}
-              Snappily simplifies the completion of compliance tasks, saving you time and effort. We cut out the
-              duplication and trim down the questions, aiming to provide information upfront for a more enjoyable (and
-              snappy) home moving experience!
+              <Text fontWeight="light">
+                Snappily simplifies the completion of compliance tasks, saving you time and effort. We cut out the
+                duplication and trim down the questions, aiming to provide information upfront for a more enjoyable (and
+                snappy) home moving experience!
+              </Text>
             </ListItem>
             <ListItem>
               <Text as="span" fontWeight="semibold">
                 Securely Manage Documents:
               </Text>{' '}
-              Our digital platform offers a secure way to manage your documents. You can easily upload, review, and sign
-              documents, all stored in one place for convenient access and peace of mind. With Snappily, documents can
-              be securely shared between relevant parties, ensuring seamless collaboration.
+              <Text fontWeight="light">
+                Our digital platform offers a secure way to manage your documents. You can easily upload, review, and
+                sign documents, all stored in one place for convenient access and peace of mind. With Snappily,
+                documents can be securely shared between relevant parties, ensuring seamless collaboration.
+              </Text>
             </ListItem>
           </UnorderedList>
-          <Text>
+          <Text fontWeight="light">
             Please note, we do not list properties for sale. Your Agent will prepare your brochure and online listing,
             handling the photography and marketing of your property. For any property-related questions, kindly contact
             your estate agent.
@@ -214,7 +256,7 @@ export const faq = {
       id: 'question-2',
       text: 'Are you going to list my property for sale?',
       answer: (
-        <Text>
+        <Text fontWeight="light">
           We are not going to list your property for sale online. We are a tech company that provides support to home
           movers to ensure that when your estate agent lists your property, they have all the required compliance
           information to hand. We simply support the process to ensure everything is in order and gets done snappily!
@@ -226,26 +268,37 @@ export const faq = {
       text: 'Why do I need to provide an ID check online?',
       answer: (
         <>
-          <Text>It is a legal requirement to provide an ID check in the UK for all property transactions.</Text>
-          <Text>
+          <Text fontWeight="light">
+            It is a legal requirement to provide an ID check in the UK for all property transactions.
+          </Text>
+          <Text fontWeight="light">
             For both sales and purchases, it&apos;s important to verify property ownership. The name on your paperwork
             must match the one on the Land Registry Title Deed. If there&apos;s a mismatch (like a maiden name change),
             your agent will review the check results manually. This process is part of ID and anti-money laundering
             (AML) requirements.
           </Text>
-          <Text>ID checks are a crucial part of property transactions in the UK for several reasons:</Text>
+          <Text fontWeight="light">
+            ID checks are a crucial part of property transactions in the UK for several reasons:
+          </Text>
           <UnorderedList ml="21px">
             <ListItem>
-              Legal Compliance: ID checks are required by law to comply with anti-money laundering (AML) regulations,
-              preventing illegal activities like money laundering and terrorism financing.
+              <Text fontWeight="light">
+                Legal Compliance: ID checks are required by law to comply with anti-money laundering (AML) regulations,
+                preventing illegal activities like money laundering and terrorism financing.
+              </Text>
             </ListItem>
             <ListItem>
-              Fraud Prevention: Verifying the identity of all parties in a property transaction protects against fraud,
-              ensuring buyers and sellers are who they claim to be, reducing the risk of identity theft and other scams.
+              <Text fontWeight="light">
+                Fraud Prevention: Verifying the identity of all parties in a property transaction protects against
+                fraud, ensuring buyers and sellers are who they claim to be, reducing the risk of identity theft and
+                other scams.
+              </Text>
             </ListItem>
             <ListItem>
-              Validity Assurance: ID checks confirm that individuals involved have the legal right to engage in the
-              transaction, ensuring the sale or purchase is legitimate and protecting all parties.
+              <Text fontWeight="light">
+                Validity Assurance: ID checks confirm that individuals involved have the legal right to engage in the
+                transaction, ensuring the sale or purchase is legitimate and protecting all parties.
+              </Text>
             </ListItem>
           </UnorderedList>
         </>
@@ -256,12 +309,12 @@ export const faq = {
       text: 'What is a Property Information Form?',
       answer: (
         <>
-          <Text>
+          <Text fontWeight="light">
             The Property Information Form is like a spotlight on your home, showcasing its best features and allowing
             you to present it in the best light to potential buyers. It includes questions about details only you know,
             such as running costs, any recent home renovations, utilities and any snazzy smart home features.
           </Text>
-          <Text>
+          <Text fontWeight="light">
             So providing more information can make your home more appealing on paper and make potential buyers fall in
             love with it!
           </Text>
@@ -274,19 +327,25 @@ export const faq = {
       answer: (
         <OrderedList ml="16px">
           <ListItem>
-            Speeding up the transaction process: It helps your solicitor thoroughly check the property and identify any
-            potential problems that might need fixing before the sale is final. This can help make the whole process
-            faster, getting you closer to that sold sign.
+            <Text fontWeight="light">
+              Speeding up the transaction process: It helps your solicitor thoroughly check the property and identify
+              any potential problems that might need fixing before the sale is final. This can help make the whole
+              process faster, getting you closer to that sold sign.
+            </Text>
           </ListItem>
           <ListItem>
-            Increasing offers and enhancing the presentation of your home: By giving detailed information about your
-            home, the form lets your agent show it in the best possible way, making it more appealing to buyers. This
-            can lead to more offers and a quicker sale.
+            <Text fontWeight="light">
+              Increasing offers and enhancing the presentation of your home: By giving detailed information about your
+              home, the form lets your agent show it in the best possible way, making it more appealing to buyers. This
+              can lead to more offers and a quicker sale.
+            </Text>
           </ListItem>
           <ListItem>
-            Reducing fall-throughs: Completing the form accurately is like putting a safety net under your sale. It
-            helps make sure you follow all the legal rules and reduces the chance of arguments happening after the sale.
-            This can help stop the sale from falling through, saving time and effort for everyone involved.
+            <Text fontWeight="light">
+              Reducing fall-throughs: Completing the form accurately is like putting a safety net under your sale. It
+              helps make sure you follow all the legal rules and reduces the chance of arguments happening after the
+              sale. This can help stop the sale from falling through, saving time and effort for everyone involved.
+            </Text>
           </ListItem>
         </OrderedList>
       ),
@@ -296,19 +355,19 @@ export const faq = {
       text: 'Why appoint a conveyancer?',
       answer: (
         <>
-          <Text>
+          <Text fontWeight="light">
             Adding a conveyancer at an early stage can help speed up the selling process and reduce the number of legal
             inquiries you might face. Speeding up the process and reducing the legal nitty-gritty you might have to deal
             with. Plus, they can help you navigate any tricky bits ensuring everything is done correctly and
             efficiently. While you&apos;re not required to add one right now, having a conveyancer will make the selling
             experience much smoother.
           </Text>
-          <Text>
+          <Text fontWeight="light">
             Your conveyancer can review documents, identify issues, and start the legal process of selling your
             property. This early collaboration streamlines the process and ensures everything is in order from the
             start.
           </Text>
-          <Text>
+          <Text fontWeight="light">
             Get ahead of the game and make the process more manageable and enjoyable. Adding your conveyancer early can
             save you time and effort down the road!
           </Text>
@@ -320,18 +379,18 @@ export const faq = {
       text: 'How to Make a Complaint?',
       answer: (
         <>
-          <Text>
+          <Text fontWeight="light">
             We genuinely care about your experience and strive to ensure you are always satisfied with our service. If
             you have any concerns, we treat any expression of dissatisfaction as a complaint. You can raise your
             complaint with any member of our team via email or live chat. We will collect some details to locate your
             information in our system, which will help us investigate your complaint thoroughly.
           </Text>
-          <Text>
+          <Text fontWeight="light">
             Got a concern? Just drop us an email at support@snappily.co.uk or use our live chat. We&apos;ll dive right
             in to sort it out. If we can&apos;t fix it right away, we&apos;ll escalate it to a senior team member and
             get back to you within three working days. If it takes longer, we&apos;ll keep you in the loop.
           </Text>
-          <Text>
+          <Text fontWeight="light">
             Still not satisfied? We&apos;ll help you escalate your concern to the right regulators. Your feedback helps
             us improve, so we always appreciate hearing from you. And just to clarify, we don&apos;t list properties for
             sale. We&apos;re here to make sure your estate agent has all the compliance info they need to list your
@@ -356,7 +415,7 @@ export const home = {
     },
     {
       id: 2,
-      content: <LockIcon />,
+      content: <LockIcon w={{ base: '20px', md: '49px' }} h={{ base: '20px', md: '48px' }} />,
       isIcon: true,
     },
     {
@@ -366,7 +425,7 @@ export const home = {
     },
     {
       id: 4,
-      content: <ClockIcon />,
+      content: <ClockIcon w={{ base: '17px', md: '41px' }} h={{ base: '17px', md: '40px' }} />,
       isIcon: true,
     },
     {
@@ -376,7 +435,7 @@ export const home = {
     },
     {
       id: 6,
-      content: <CirclesIcon />,
+      content: <CirclesIcon w={{ base: '17px', md: '41px' }} h={{ base: '17px', md: '40px' }} />,
       isIcon: true,
     },
     {
@@ -397,7 +456,13 @@ export const home = {
   ],
   description: {
     title: (
-      <Text as="h2" fontSize="2xl" lineHeight="2xl" fontWeight="bold" letterSpacing="-2px">
+      <Text
+        as="h2"
+        fontSize={{ base: 'semi-md', md: '2xl' }}
+        lineHeight={{ base: '40px', md: '2xl' }}
+        fontWeight="bold"
+        letterSpacing="-1px"
+      >
         Save Time for the{' '}
         <Text as="span" color="coral">
           Things That Matter
@@ -476,10 +541,23 @@ export const home = {
         imageSrc: '/images/Paper.png',
         title: (
           <Box>
-            <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+            <Text
+              as="h2"
+              fontSize={{ base: 'md', md: 'lg' }}
+              lineHeight={{ base: 'md', md: 'lg' }}
+              fontWeight="bold"
+              letterSpacing={{ base: '-1px', md: '-2px' }}
+            >
               Say goodbye to
             </Text>
-            <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px" color="coral">
+            <Text
+              as="h2"
+              fontSize={{ base: 'md', md: 'lg' }}
+              lineHeight={{ base: 'md', md: 'lg' }}
+              fontWeight="bold"
+              letterSpacing={{ base: '-1px', md: '-2px' }}
+              color="coral"
+            >
               the hassle of paperwork
             </Text>
           </Box>
@@ -492,10 +570,23 @@ export const home = {
         imageSrc: '/images/Rabbit.png',
         title: (
           <Box>
-            <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px" color="coral">
+            <Text
+              as="h2"
+              fontSize={{ base: 'md', md: 'lg' }}
+              lineHeight={{ base: 'md', md: 'lg' }}
+              fontWeight="bold"
+              letterSpacing={{ base: '-1px', md: '-2px' }}
+              color="coral"
+            >
               Speed Up
             </Text>
-            <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+            <Text
+              as="h2"
+              fontSize={{ base: 'md', md: 'lg' }}
+              lineHeight={{ base: 'md', md: 'lg' }}
+              fontWeight="bold"
+              letterSpacing={{ base: '-1px', md: '-2px' }}
+            >
               Your Transaction
             </Text>
           </Box>
@@ -508,10 +599,23 @@ export const home = {
         imageSrc: '/images/ScreenWithList.png',
         title: (
           <Box>
-            <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px" color="coral">
+            <Text
+              as="h2"
+              fontSize={{ base: 'md', md: 'lg' }}
+              lineHeight={{ base: 'md', md: 'lg' }}
+              fontWeight="bold"
+              letterSpacing={{ base: '-1px', md: '-2px' }}
+              color="coral"
+            >
               Securely Manage
             </Text>
-            <Text as="h2" fontSize="lg" lineHeight="lg" fontWeight="bold" letterSpacing="-2px">
+            <Text
+              as="h2"
+              fontSize={{ base: 'md', md: 'lg' }}
+              lineHeight={{ base: 'md', md: 'lg' }}
+              fontWeight="bold"
+              letterSpacing={{ base: '-1px', md: '-2px' }}
+            >
               Documents
             </Text>
           </Box>
@@ -525,13 +629,13 @@ export const home = {
     title: (
       <Text
         as="h1"
-        fontSize="2xl"
-        lineHeight="2xl"
+        fontSize={{ base: 'semi-md', md: '2xl' }}
+        lineHeight={{ base: '40px', md: '2xl' }}
         fontWeight="bold"
-        letterSpacing="-2px"
+        letterSpacing={{ base: '-1px', md: '-2px' }}
         maxW="500px"
         color="white"
-        textAlign="center"
+        textAlign={{ base: 'left', md: 'center' }}
       >
         <Text as="span" color="coral">
           What do we offer{' '}
@@ -562,12 +666,12 @@ export const home = {
   benefit: (
     <Text
       as="h2"
-      fontSize="semi-md"
-      lineHeight="40px"
-      letterSpacing="-2px"
+      fontSize={{ base: 'md', md: 'semi-md' }}
+      lineHeight={{ base: '32px', md: '40px' }}
+      letterSpacing={{ base: '-1px', md: '-2px' }}
       fontWeight="semibold"
       color="white"
-      textAlign="center"
+      textAlign={{ base: 'left', md: 'center' }}
     >
       Streamlining five different compliance processes into one single platform means{' '}
       <Text as="span" color="rgba(255, 255, 255, .24)">
@@ -586,6 +690,9 @@ export const home = {
         imageStyle: {
           top: '30px',
         },
+        mobileImageStyle: {
+          top: '12px',
+        },
       },
       {
         id: 2,
@@ -593,6 +700,9 @@ export const home = {
         imageSrc: '/images/SellerAndBuyerApp.png',
         imageStyle: {
           top: '32px',
+        },
+        mobileImageStyle: {
+          top: '12px',
         },
       },
       {
@@ -603,6 +713,7 @@ export const home = {
           top: '-17px',
           left: '100px',
         },
+        mobileImageStyle: {},
       },
       {
         id: 4,
@@ -612,6 +723,9 @@ export const home = {
           top: '33px',
           left: '15px',
         },
+        mobileImageStyle: {
+          top: '12px',
+        },
       },
       {
         id: 5,
@@ -619,6 +733,9 @@ export const home = {
         imageSrc: '/images/AltoCRMIntegration.png',
         imageStyle: {
           top: '-28px',
+        },
+        mobileImageStyle: {
+          top: '-5px',
         },
       },
     ],

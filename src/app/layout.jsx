@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
           <BaseContainer>
             <Header />
           </BaseContainer>
-          <Box as="main" pt="80px">
+          <Box as="main" pt={{ base: '65px', md: '80px' }}>
             {children}
           </Box>
           <BaseContainer>
