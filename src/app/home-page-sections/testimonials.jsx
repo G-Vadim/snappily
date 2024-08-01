@@ -1,6 +1,6 @@
 // import Slider from "react-slick";
 import Image from 'next/image';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, Center } from '@chakra-ui/react';
 
 import { StarIcon } from '@/app/components/icons';
 
@@ -15,7 +15,8 @@ const Slide = ({ avatar, rate, text, name }) => (
     px="20px"
     pb="28px"
     gap="28px"
-    my="35px"
+    mt="35px"
+    mb={{ base: '0', md: '35px' }}
     w="440px"
   >
     <Image
@@ -50,13 +51,22 @@ const Slide = ({ avatar, rate, text, name }) => (
 );
 
 export const Testimonials = ({ title, items }) => (
-  <Flex flexDir="column" gap="93px" mt="157px" mb="60px">
+  <Flex
+    flexDir="column"
+    gap={{ base: '24px', md: '93px' }}
+    mt={{ base: '40px', md: '157px' }}
+    mb={{ base: 0, md: '60px' }}
+    px={{ base: '16px', md: '0' }}
+  >
     {title}
-    <Flex justifyContent="space-around">
+    <Flex justifyContent="space-around" display={{ base: 'none', md: 'flex' }}>
       {items.map((item) => (
         <Slide key={item.id} {...item} />
       ))}
     </Flex>
+    <Center display={{ base: 'flex', md: 'none' }}>
+      <Slide {...items[0]} />
+    </Center>
   </Flex>
 );
 
