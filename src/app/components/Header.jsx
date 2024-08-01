@@ -77,6 +77,7 @@ export const Header = () => {
             </BaseLink>
             <MenuItem>
               <Text
+                w="full"
                 fontSize="xs"
                 fontWeight="medium"
                 lineHeight="xs"

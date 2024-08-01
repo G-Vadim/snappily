@@ -69,7 +69,9 @@ const Partners = () => (
               task assistance - saving your team time and hassle while earning revenue by utilizing our services.
             </Text>
           </Flex>
-          <Phone gridArea="two" />
+          <Flex gridArea="two" justifyContent="center">
+            <Phone />
+          </Flex>
           <Flex flexDir="column" gap={{ base: '12px', md: '20px' }} gridArea="three">
             <Flex
               flexDir={{ base: 'row', md: 'column' }}

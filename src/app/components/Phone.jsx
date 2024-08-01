@@ -9,7 +9,13 @@ export const Phone = (props) => {
 
   return (
     <Box position="relative" rounded="base" overflow="hidden" minW={{ base: 'auto', md: '482px' }} {...props}>
-      <Image src="/images/MobilePhone.jpg" alt="phone-background" width={482} height={643} style={{ zIndex: 1 }} />
+      <Image
+        src="/images/MobilePhone.jpg"
+        alt="phone-background"
+        width={482}
+        height={643}
+        style={{ zIndex: 1, borderRadius: '24px', ...(isMobile && { width: '361px' }) }}
+      />
       <Image
         src="/images/App.png"
         alt="phone-app"
