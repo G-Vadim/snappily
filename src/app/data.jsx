@@ -492,7 +492,14 @@ export const home = {
   ],
   testimonials: {
     title: (
-      <Text as="h1" fontSize="xl" lineHeight="xl" fontWeight="bold" letterSpacing="-2px" textAlign="center">
+      <Text
+        as="h1"
+        fontSize={{ base: 'semi-md', md: 'xl' }}
+        lineHeight={{ base: '40px', md: 'xl' }}
+        fontWeight="bold"
+        letterSpacing={{ base: '-1px', md: '-2px' }}
+        textAlign="center"
+      >
         What Our{' '}
         <Text as="span" color="coral">
           Customers

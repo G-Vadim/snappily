@@ -23,8 +23,9 @@ const Home = () => (
         <TargetClients targetClients={home.targetClients} />
       </Flex>
     </BaseContainer>
-    <Box display={{ base: 'none', md: 'block' }}>
-      <Testimonials {...home.testimonials} />
+    <Testimonials {...home.testimonials} />
+    <Box display={{ base: 'block', md: 'none' }}>
+      <Logos logos={home.logos} />
     </Box>
     <BaseContainer p={{ base: '16px', md: '0' }} mt={{ base: '24px', md: '0' }}>
       <Flex flexDir="column" gap={{ base: '24px', md: '144px' }} pt={{ base: '16px', md: 0 }}>
