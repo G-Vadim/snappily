@@ -361,7 +361,7 @@ export const home = {
     },
     {
       id: 3,
-      content: 'Secure',
+      content: 'Swift',
       isIcon: false,
     },
     {
