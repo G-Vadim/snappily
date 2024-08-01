@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import Head from 'next/head';
 
 import { Header } from '@/app/components/Header';
 import { Footer } from '@/app/components/Footer';
@@ -10,9 +9,6 @@ import '@/app/theme/styles/globals.css';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      </Head>
       <body>
         <Providers>
           <BaseContainer>

@@ -20,7 +20,7 @@ const colourStyles = {
     ...styles,
     border: '1px solid #29262C',
     borderRadius: '8px',
-    fontSize: '14px',
+    fontSize: '16px',
     lineHeight: '20px',
     fontWeight: '500',
     ':hover': {
@@ -29,7 +29,7 @@ const colourStyles = {
   }),
   option: (styles) => ({
     ...styles,
-    fontSize: '14px',
+    fontSize: '16px',
     lineHeight: '20px',
     fontWeight: '500',
   }),
@@ -179,7 +179,7 @@ export const BookDemoModal = ({ show, onClose }) => {
                 <>
                   <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                     <label htmlFor="type">
-                      <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                      <Text as="span" fontSize="mxs" lineHeight="xs" fontWeight="medium">
                         Type
                       </Text>
                     </label>
@@ -192,10 +192,10 @@ export const BookDemoModal = ({ show, onClose }) => {
                   </Flex>
                   <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                     <label htmlFor="email">
-                      <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                      <Text as="span" fontSize="mxs" lineHeight="xs" fontWeight="medium">
                         Email{' '}
                       </Text>
-                      <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium" color="coral">
+                      <Text as="span" fontSize="mxs" lineHeight="xs" fontWeight="medium" color="coral">
                         *
                       </Text>
                       {errors.email && (
@@ -208,7 +208,7 @@ export const BookDemoModal = ({ show, onClose }) => {
                     <Input
                       id="email"
                       type="text"
-                      fontSize="xs"
+                      fontSize="mxs"
                       lineHeight="xs"
                       fontWeight="medium"
                       p="8px"
@@ -225,14 +225,14 @@ export const BookDemoModal = ({ show, onClose }) => {
                       <motion.div initial={{ opacity: 0 }} animate={{ opacity: isFullForm ? 1 : 0 }}>
                         <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                           <label htmlFor="contactNumber">
-                            <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                            <Text as="span" fontSize="mxs" lineHeight="xs" fontWeight="medium">
                               Phone number
                             </Text>
                           </label>
                           <Input
                             id="contactNumber"
                             type="text"
-                            fontSize="xs"
+                            fontSize="mxs"
                             lineHeight="xs"
                             fontWeight="medium"
                             p="8px"
@@ -246,14 +246,14 @@ export const BookDemoModal = ({ show, onClose }) => {
                         </Flex>
                         <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                           <label htmlFor="name">
-                            <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                            <Text as="span" fontSize="mxs" lineHeight="xs" fontWeight="medium">
                               Name
                             </Text>
                           </label>
                           <Input
                             id="name"
                             type="text"
-                            fontSize="xs"
+                            fontSize="mxs"
                             lineHeight="xs"
                             fontWeight="medium"
                             p="8px"
@@ -267,14 +267,14 @@ export const BookDemoModal = ({ show, onClose }) => {
                         </Flex>
                         <Flex mb={{ base: '10px', md: '20px' }} flexDir="column" gap="8px">
                           <label htmlFor="message">
-                            <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
+                            <Text as="span" fontSize="mxs" lineHeight="xs" fontWeight="medium">
                               Message
                             </Text>
                           </label>
                           <Textarea
                             id="message"
                             rows={4}
-                            fontSize="xs"
+                            fontSize="mxs"
                             lineHeight="xs"
                             fontWeight="medium"
                             p="8px"
