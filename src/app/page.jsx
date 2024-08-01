@@ -1,5 +1,5 @@
 'use client';
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex, Box, Text } from '@chakra-ui/react';
 
 import { BaseContainer } from './components/BaseContainer';
 import { TogetherSection } from './components/TogetherSection';
@@ -15,23 +15,43 @@ import { home } from './data';
 
 const Home = () => (
   <>
-    <BaseContainer>
+    <BaseContainer p={{ base: '16px', md: '0' }}>
       <Title {...home.titleSection} />
-      <Flex flexDir="column" gap="144px">
+      <Flex flexDir="column" gap={{ base: '40px', md: '144px' }} mt={{ base: '24px', md: '80px' }}>
         <KeysList keys={home.keys} />
         <Description {...home.description} />
         <TargetClients targetClients={home.targetClients} />
       </Flex>
     </BaseContainer>
-    <Testimonials {...home.testimonials} />
-    <BaseContainer>
-      <Flex flexDir="column" gap="144px">
-        <Logos logos={home.logos} />
+    <Box display={{ base: 'none', md: 'block' }}>
+      <Testimonials {...home.testimonials} />
+    </Box>
+    <BaseContainer p={{ base: '16px', md: '0' }} mt={{ base: '24px', md: '0' }}>
+      <Flex flexDir="column" gap={{ base: '24px', md: '144px' }} pt={{ base: '16px', md: 0 }}>
+        <Box display={{ base: 'none', md: 'block' }}>
+          <Logos logos={home.logos} />
+        </Box>
+        <Text
+          as="h2"
+          display={{ base: 'block', md: 'none' }}
+          fontSize="semi-md"
+          lineHeight="40px"
+          letterSpacing="-1px"
+          fontWeight="bold"
+          textAlign="center"
+        >
+          <Text as="span" color="coral">
+            What
+          </Text>{' '}
+          does
+          <br />
+          Snappily do?
+        </Text>
         <Advantages {...home.advantages} />
       </Flex>
     </BaseContainer>
     <Offer {...home.offer} />
-    <Box h="380px" bgColor="white" />
+    <Box h={{ base: '150px', md: '380px' }} bgColor="white" />
     <TogetherSection mt="0" />
   </>
 );

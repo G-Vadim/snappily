@@ -1,11 +1,13 @@
 'use client';
 import { useState } from 'react';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Text, Accordion, AccordionItem, AccordionButton, AccordionPanel, Center } from '@chakra-ui/react';
 
 import { BaseContainer } from '@/app/components/BaseContainer';
 import { PageTitle } from '@/app/components/PageTitle';
 import { TogetherSection } from '@/app/components/TogetherSection';
 import { faq } from '@/app/data';
+import { useMobile } from '@/app/utils/useMobile';
+import { CircleAddIcon, CircleRemoveIcon } from '@/app/components/icons';
 
 const Answer = ({ id, title, children }) => (
   <Flex as="article" flexDir="column" gap="8px" id={id}>
@@ -19,6 +21,7 @@ const Answer = ({ id, title, children }) => (
 );
 
 const FAQ = () => {
+  const isMobile = useMobile();
   const [activeQuestion, setActiveQuestion] = useState(faq.questions[0].id);
 
   const handleClickQuestion = (id) => {
@@ -26,6 +29,34 @@ const FAQ = () => {
     target.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setActiveQuestion(id);
   };
+
+  if (isMobile) {
+    return (
+      <>
+        <BaseContainer p="16px" mb="24px">
+          <PageTitle {...faq.header} />
+          <Accordion allowToggle mt="40px">
+            {faq.questions.map(({ id, text, answer }) => (
+              <AccordionItem key={id}>
+                {({ isExpanded }) => (
+                  <>
+                    <AccordionButton justifyContent="space-between" p="16px 0" gap="4px">
+                      <Text as="h3" fontSize="md" lineHeight="md" fontWeight="bold" color="coral" textAlign="left">
+                        {text}
+                      </Text>
+                      <Center minW="21px">{isExpanded ? <CircleRemoveIcon /> : <CircleAddIcon />}</Center>
+                    </AccordionButton>
+                    <AccordionPanel p="0 0 16px">{answer}</AccordionPanel>
+                  </>
+                )}
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </BaseContainer>
+        <TogetherSection />
+      </>
+    );
+  }
 
   return (
     <>

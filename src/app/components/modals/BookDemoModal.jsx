@@ -6,6 +6,7 @@ import { CheckIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Button } from '@/app/components/Button';
+import { useMobile } from '@/app/utils/useMobile';
 
 const url = 'https://onboarding-api-prd.azurewebsites.net/enquiries';
 
@@ -48,12 +49,19 @@ const defaultErrors = {
   submit: '',
 };
 
-export const BookDemoModal = () => {
-  const [showModal, setShowModal] = useBoolean(false);
+export const BookDemoModal = ({ show, onClose }) => {
+  const isMobile = useMobile();
   const [formData, setFormData] = useState(initialForm);
   const [errors, setErrors] = useState(defaultErrors);
   const [isFormFullHeight, setFormFullHeight] = useBoolean(true);
   const [formSent, setFormSent] = useBoolean(false);
+
+  const handleClose = () => {
+    onClose();
+    setFormSent.off();
+    setErrors(defaultErrors);
+    setFormData(initialForm);
+  };
 
   const handleChangeForm = (key, value) => {
     setFormData((prevState) => ({ ...prevState, [key]: value }));
@@ -119,11 +127,8 @@ export const BookDemoModal = () => {
           body: JSON.stringify(data),
         });
         setFormSent.on();
-        setFormData(initialForm);
-        setErrors(defaultErrors);
         setTimeout(() => {
-          setShowModal.off();
-          setFormSent.off();
+          handleClose();
         }, 3000);
       } catch (e) {
         setErrors((prevState) => ({
@@ -136,41 +141,31 @@ export const BookDemoModal = () => {
 
   return (
     <>
-      <Button
-        color="coral"
-        bgColor="white"
-        onClick={() => {
-          setShowModal.on();
-          setErrors(defaultErrors);
-        }}
-      >
-        Book a demo
-      </Button>
-      {showModal && (
+      {show && (
         <Center
           position="fixed"
           top={0}
           left={0}
           w="100vw"
           h="100%"
-          zIndex={1}
+          zIndex={4}
           bgColor="rgba(0, 0, 0, 0.3)"
-          onClick={() => {
-            setShowModal.off();
-          }}
+          onClick={handleClose}
         >
           <Box
-            w="500px"
+            w={{ base: '90vw', md: '500px' }}
             rounded="base"
             bgColor="white"
-            p="30px"
+            p={{ base: '20px', md: '30px' }}
             onClick={(e) => {
               e.stopPropagation();
             }}
           >
             <motion.div
-              initial={{ height: '545px' }}
-              animate={{ height: formSent ? '114px' : isFullForm ? '545px' : '200px' }}
+              initial={{ height: isMobile ? '510px' : '545px' }}
+              animate={{
+                height: formSent ? '114px' : isFullForm ? (isMobile ? '510px' : '545px') : isMobile ? '180px' : '200px',
+              }}
               onAnimationComplete={() => isFullForm && setFormFullHeight.on()}
             >
               {formSent ? (
@@ -182,7 +177,7 @@ export const BookDemoModal = () => {
                 </Flex>
               ) : (
                 <>
-                  <Flex mb="15px" flexDir="column" gap="8px">
+                  <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                     <label htmlFor="type">
                       <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
                         Type
@@ -195,7 +190,7 @@ export const BookDemoModal = () => {
                       styles={colourStyles}
                     />
                   </Flex>
-                  <Flex mb="15px" flexDir="column" gap="8px">
+                  <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                     <label htmlFor="email">
                       <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
                         Email{' '}
@@ -228,7 +223,7 @@ export const BookDemoModal = () => {
                   <AnimatePresence>
                     {isFullForm && isFormFullHeight && (
                       <motion.div initial={{ opacity: 0 }} animate={{ opacity: isFullForm ? 1 : 0 }}>
-                        <Flex mb="15px" flexDir="column" gap="8px">
+                        <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                           <label htmlFor="contactNumber">
                             <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
                               Phone number
@@ -249,7 +244,7 @@ export const BookDemoModal = () => {
                             placeholder="Enter your phone number"
                           />
                         </Flex>
-                        <Flex mb="15px" flexDir="column" gap="8px">
+                        <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                           <label htmlFor="name">
                             <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
                               Name
@@ -270,7 +265,7 @@ export const BookDemoModal = () => {
                             placeholder="Enter your name"
                           />
                         </Flex>
-                        <Flex mb="20px" flexDir="column" gap="8px">
+                        <Flex mb={{ base: '10px', md: '20px' }} flexDir="column" gap="8px">
                           <label htmlFor="message">
                             <Text as="span" fontSize="xs" lineHeight="xs" fontWeight="medium">
                               Message
@@ -294,7 +289,7 @@ export const BookDemoModal = () => {
                             }}
                           />
                         </Flex>
-                        <Flex mb="15px" flexDir="column" gap="8px">
+                        <Flex mb={{ base: '10px', md: '15px' }} flexDir="column" gap="8px">
                           <Checkbox
                             size="lg"
                             spacing="15px"
@@ -315,7 +310,7 @@ export const BookDemoModal = () => {
             </motion.div>
             {!formSent && (
               <Flex justifyContent="space-around">
-                <Button onClick={() => setShowModal.off()}>Close</Button>
+                <Button onClick={handleClose}>Close</Button>
                 <Button
                   borderWidth="1px"
                   _hover={{

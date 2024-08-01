@@ -1,3 +1,4 @@
+'use client';
 import { useMediaQuery } from '@chakra-ui/react';
 import { MD_BREAKPOINT } from '../theme/breakpoints';
 

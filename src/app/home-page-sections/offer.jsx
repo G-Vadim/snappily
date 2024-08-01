@@ -5,35 +5,49 @@ import { Flex, Text, Grid, Box, GridItem } from '@chakra-ui/react';
 
 import { BaseContainer } from '@/app/components/BaseContainer';
 import { home } from '@/app/data';
+import { useMobile } from '@/app/utils/useMobile';
 
 const WorryList = ({ worryList }) => (
-  <Flex as="article" flexDir="column" w="650px" mt="104px">
+  <Flex as="article" flexDir="column" w={{ base: 'auto', md: '650px' }} mt={{ base: '40px', md: '104px' }}>
     {worryList.map((item, i) => (
       <Grid
         key={i}
-        templateColumns="repeat(2, minmax(0, 1fr))"
-        gap="40px"
-        borderBottomWidth="1px"
-        borderColor="rgba(255, 255, 255, 0.1)"
-        py="40px"
+        templateColumns={{ base: '1fr', md: 'repeat(2, minmax(0, 1fr))' }}
+        gap={{ base: '0', md: '40px' }}
+        borderBottomWidth={{ base: 'unset', md: '1px' }}
+        borderColor={{ base: 'unset', md: 'rgba(255, 255, 255, 0.1)' }}
+        py={{ base: '0', md: '40px' }}
       >
         {item.map((el) =>
           el.title ? (
             <Text
               as="h3"
               key={`${i}-${el.id}`}
-              fontSize="lg"
-              lineHeight="lg"
+              fontSize={{ base: 'md', md: 'lg' }}
+              lineHeight={{ base: 'md', md: 'lg' }}
               fontWeight="semibold"
               color="white"
-              letterSpacing="-2px"
+              letterSpacing={{ base: '-1px', md: '-2px' }}
             >
               {el.title}
             </Text>
           ) : (
-            <Flex key={`${i}-${el.id}`} flexDir="column" gap="16px">
+            <Flex
+              key={`${i}-${el.id}`}
+              flexDir={{ base: 'row', md: 'column' }}
+              gap="16px"
+              alignItems={{ base: 'center', md: 'unset' }}
+              borderBottomWidth={{ base: '1px', md: 'unset' }}
+              borderColor={{ base: 'rgba(255, 255, 255, 0.1)', md: 'unset' }}
+              py={{ base: '24px', md: '0' }}
+            >
               {el.icon}
-              <Text fontSize="20px" lineHeight="28px" fontWeight="light" color="white">
+              <Text
+                fontSize={{ base: 'mxs', md: '20px' }}
+                lineHeight={{ base: 'base', md: '28px' }}
+                fontWeight="light"
+                color="white"
+              >
                 {el.text}
               </Text>
             </Flex>
@@ -46,10 +60,24 @@ const WorryList = ({ worryList }) => (
 
 const Tabs = ({ title, items }) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const isMobile = useMobile();
 
   return (
-    <Flex as="article" flexDir="column" gap="64px" justifyContent="center" mt="104px">
-      <Text as="h2" fontSize="2xl" lineHeight="2xl" fontWeight="bold" color="white" textAlign="center">
+    <Flex
+      as="article"
+      flexDir="column"
+      gap={{ base: '24px', md: '64px' }}
+      justifyContent="center"
+      mt={{ base: '40px', md: '104px' }}
+    >
+      <Text
+        as="h2"
+        fontSize={{ base: 'semi-md', md: '2xl' }}
+        lineHeight={{ base: '40pxd', md: '2xl' }}
+        fontWeight="bold"
+        color="white"
+        textAlign="center"
+      >
         {title}
       </Text>
       <Box>
@@ -57,7 +85,7 @@ const Tabs = ({ title, items }) => {
           {items.map((el, i) => (
             <Box
               key={i}
-              py="12px"
+              py={{ base: '6px', md: '12px' }}
               borderTopWidth="2px"
               borderColor={activeTabIndex === i ? 'coral' : 'charcoal'}
               _hover={{
@@ -65,15 +93,38 @@ const Tabs = ({ title, items }) => {
               }}
               onClick={() => setActiveTabIndex(i)}
             >
-              <Text as="h3" fontSize="base" lineHeight="base" fontWeight="semibold" color="white" textAlign="center">
+              <Text
+                display={{ base: 'none', md: 'block' }}
+                as="h3"
+                fontSize="base"
+                lineHeight="base"
+                fontWeight="semibold"
+                color="white"
+                textAlign="center"
+              >
                 {el.title}
               </Text>
             </Box>
           ))}
         </Box>
-        <Box position="relative" mt="67px" h="488px">
+        <Text
+          display={{ base: 'block', md: 'none' }}
+          as="h3"
+          fontSize="base"
+          lineHeight="base"
+          color="white"
+          fontWeight="semibold"
+          textAlign="center"
+        >
+          {items[activeTabIndex].title}
+        </Text>
+        <Flex position="relative" mt="67px" h={{ base: '125px', md: '488px' }} justifyContent="center">
           <Image
-            style={{ zIndex: 2, position: 'absolute', ...items[activeTabIndex].imageStyle }}
+            style={{
+              zIndex: 2,
+              position: 'absolute',
+              ...items[activeTabIndex][isMobile ? 'mobileImageStyle' : 'imageStyle'],
+            }}
             src={items[activeTabIndex].imageSrc}
             alt={items[activeTabIndex].title}
             width={1300}
@@ -81,158 +132,219 @@ const Tabs = ({ title, items }) => {
             priority={activeTabIndex}
           />
           <Box
-            w="1330px"
-            h="977px"
+            w={{ base: '361px', md: '1330px' }}
+            h="265px"
             rounded="full"
             bgGradient="linear-gradient(to bottom, rgba(255, 0, 51, 0.5) 0%, rgba(137, 49, 76, 0.2) 25%, rgba(255, 0, 51, 0) 50%)"
             position="absolute"
             zIndex="1"
           />
-        </Box>
+        </Flex>
       </Box>
     </Flex>
   );
 };
 
-export const Offer = ({ title, text }) => (
-  <Box as="section" bgColor="charcoal" pt="144px" mt="144px">
-    <BaseContainer>
-      <Flex flexDir="column" alignItems="center">
-        <Flex flexDir="column" gap="64px" justifyContent="center">
-          <Flex flexDir="column" alignItems="center" gap="20px">
-            {title}
-            <Text fontSize="base" lineHeight="base" fontWeight="light" color="white" maxW="810px" textAlign="center">
-              {text}
-            </Text>
+export const Offer = ({ title, text }) => {
+  const isMobile = useMobile();
+
+  return (
+    <Box as="section" bgColor="charcoal" pt={{ base: '32px', md: '144px' }} mt={{ base: '24px', md: '144px' }}>
+      <BaseContainer px={{ base: '16px', md: '0' }}>
+        <Flex flexDir="column" alignItems="center">
+          <Flex flexDir="column" gap={{ base: '40px', md: '64px' }} justifyContent="center">
+            <Flex flexDir="column" alignItems="center" gap="20px">
+              {title}
+              <Text
+                fontSize={{ base: 'mxs', md: 'base' }}
+                lineHeight="base"
+                fontWeight="light"
+                color="white"
+                maxW="810px"
+                textAlign={{ base: 'left', md: 'center' }}
+              >
+                {text}
+              </Text>
+            </Flex>
+            <Grid
+              templateColumns={{ base: '1fr', md: 'repeat(5, minmax(0, 1fr))' }}
+              templateRows={{ base: 'repeat(5, minmax(0, 1fr))', md: 'repeat(3, minmax(0, 1fr))' }}
+              gap={{ base: '24px', md: '20px' }}
+              px={{ base: '0', md: '167px' }}
+              maxH={{ base: 'unset', md: '800px' }}
+            >
+              <GridItem
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                justifyContent="space-between"
+                pt={{ base: '16px', md: '20px' }}
+                px={{ base: '16px', md: '39px' }}
+                gap={{ base: '18px', md: '20px' }}
+                bgColor="#DFDEFB"
+                rounded="base"
+                colSpan={{ base: '1', md: '3' }}
+                rowSpan={{ base: '1', md: '2' }}
+                minH={{ base: '288px', md: 'unset' }}
+              >
+                <Text
+                  as="h3"
+                  fontSize="md"
+                  lineHeight={{ base: 'semi-md', md: 'md' }}
+                  fontWeight="semibold"
+                  textAlign="center"
+                >
+                  Digital ID & AML Checks
+                </Text>
+                <Image
+                  src="/images/IDCheck.png"
+                  alt="IDCheck"
+                  width={480}
+                  height={520}
+                  style={{ width: isMobile ? '203px' : '420px' }}
+                />
+              </GridItem>
+              <GridItem
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                pt={{ base: '16px', md: '20px' }}
+                px={{ base: '16px', md: '39px' }}
+                gap={{ base: '18px', md: '20px' }}
+                bgColor="#FBE8DE"
+                rounded="base"
+                colSpan={{ base: '1', md: '2' }}
+                rowSpan={{ base: '1', md: '1' }}
+                minH={{ base: '288px', md: 'unset' }}
+              >
+                <Text
+                  as="h3"
+                  fontSize="md"
+                  lineHeight={{ base: 'semi-md', md: 'md' }}
+                  fontWeight="semibold"
+                  textAlign="center"
+                >
+                  Automated Title Deeds
+                </Text>
+                <Image
+                  src="/images/AutomatedTitleNeeds.png"
+                  alt="AutomatedTitleNeeds"
+                  width={292}
+                  height={179}
+                  style={{ width: isMobile ? '329px' : '292px' }}
+                />
+              </GridItem>
+              <GridItem
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                pt={{ base: '16px', md: '20px' }}
+                px={{ base: '16px', md: '39px' }}
+                gap={{ base: '18px', md: '20px' }}
+                bgColor="white"
+                rounded="base"
+                colSpan={{ base: '1', md: '2' }}
+                rowSpan={{ base: '1', md: '1' }}
+                minH={{ base: '288px', md: 'unset' }}
+              >
+                <Text
+                  as="h3"
+                  fontSize="md"
+                  lineHeight={{ base: 'semi-md', md: 'md' }}
+                  fontWeight="semibold"
+                  textAlign="center"
+                  maxW="280px"
+                >
+                  User-Friendly Property Information Forms
+                </Text>
+                <Image
+                  src="/images/PropertyInfoForm.png"
+                  alt="PropertyInfoForm"
+                  width={292}
+                  height={143}
+                  style={{
+                    width: isMobile ? '329px' : '292px',
+                    maxHeight: '143px',
+                    objectFit: 'contain',
+                  }}
+                />
+              </GridItem>
+              <GridItem
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                pt={{ base: '16px', md: '20px' }}
+                px={{ base: '16px', md: '39px' }}
+                gap={{ base: '18px', md: '20px' }}
+                bgColor="white"
+                rounded="base"
+                colSpan={{ base: '1', md: '2' }}
+                rowSpan={{ base: '1', md: '1' }}
+                minH={{ base: '288px', md: 'unset' }}
+              >
+                <Text
+                  as="h3"
+                  fontSize="md"
+                  lineHeight={{ base: 'semi-md', md: 'md' }}
+                  fontWeight="semibold"
+                  textAlign="center"
+                >
+                  Effortless E-sign for your Terms of Business
+                </Text>
+                <Image
+                  src="/images/ESign.png"
+                  alt="ESign"
+                  width={292}
+                  height={143}
+                  style={{
+                    width: isMobile ? '329px' : '292px',
+                    maxHeight: '143px',
+                    objectFit: 'contain',
+                  }}
+                />
+              </GridItem>
+              <GridItem
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                justifyContent="space-between"
+                py={{ base: '32px', md: '20px' }}
+                px={{ base: '16px', md: '39px' }}
+                bgColor="#DEFAFB"
+                rounded="base"
+                colSpan={{ base: '1', md: '3' }}
+                rowSpan={{ base: '1', md: '1' }}
+                minH={{ base: '288px', md: 'unset' }}
+              >
+                <Image
+                  src="/images/ScreenWithList.png"
+                  alt="SecureDocumentStore"
+                  width={512}
+                  height={185}
+                  style={{
+                    maxHeight: '160px',
+                    objectFit: 'contain',
+                  }}
+                />
+                <Text
+                  as="h3"
+                  fontSize="md"
+                  lineHeight={{ base: 'semi-md', md: 'md' }}
+                  fontWeight="semibold"
+                  textAlign="center"
+                >
+                  Secure document store
+                </Text>
+              </GridItem>
+            </Grid>
           </Flex>
-          <Grid
-            templateColumns="repeat(5, minmax(0, 1fr))"
-            templateRows="repeat(3, minmax(0, 1fr))"
-            gap="20px"
-            px="167px"
-            maxH="800px"
-          >
-            <GridItem
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              justifyContent="space-between"
-              pt="20px"
-              px="39px"
-              gap="20px"
-              bgColor="#DFDEFB"
-              rounded="base"
-              colSpan="3"
-              rowSpan="2"
-            >
-              <Text as="h3" fontSize="md" lineHeight="md" fontWeight="semibold" textAlign="center">
-                Digital ID & AML Checks
-              </Text>
-              <Image src="/images/IDCheck.png" alt="IDCheck" width={480} height={520} style={{ width: '420px' }} />
-            </GridItem>
-            <GridItem
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pt="20px"
-              px="39px"
-              gap="20px"
-              bgColor="#FBE8DE"
-              rounded="base"
-              colSpan="2"
-              rowSpan="1"
-            >
-              <Text as="h3" fontSize="md" lineHeight="md" fontWeight="semibold" textAlign="center">
-                Automated Title Deeds
-              </Text>
-              <Image src="/images/AutomatedTitleNeeds.png" alt="AutomatedTitleNeeds" width={292} height={179} />
-            </GridItem>
-            <GridItem
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pt="20px"
-              px="39px"
-              gap="20px"
-              bgColor="white"
-              rounded="base"
-              colSpan="2"
-              rowSpan="1"
-            >
-              <Text as="h3" fontSize="md" lineHeight="md" fontWeight="semibold" textAlign="center" maxW="280px">
-                User-Friendly Property Information Forms
-              </Text>
-              <Image
-                src="/images/PropertyInfoForm.png"
-                alt="PropertyInfoForm"
-                width={292}
-                height={143}
-                style={{
-                  maxHeight: '143px',
-                  objectFit: 'contain',
-                }}
-              />
-            </GridItem>
-            <GridItem
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pt="20px"
-              px="39px"
-              gap="20px"
-              bgColor="white"
-              rounded="base"
-              colSpan="2"
-              rowSpan="1"
-            >
-              <Text as="h3" fontSize="md" lineHeight="md" fontWeight="semibold" textAlign="center">
-                Effortless E-sign for your Terms of Business
-              </Text>
-              <Image
-                src="/images/ESign.png"
-                alt="ESign"
-                width={292}
-                height={143}
-                style={{
-                  maxHeight: '143px',
-                  objectFit: 'contain',
-                }}
-              />
-            </GridItem>
-            <GridItem
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              justifyContent="space-between"
-              py="20px"
-              px="39px"
-              bgColor="#DEFAFB"
-              rounded="base"
-              colSpan="3"
-              rowSpan="1"
-            >
-              <Image
-                src="/images/ScreenWithList.png"
-                alt="SecureDocumentStore"
-                width={512}
-                height={185}
-                style={{
-                  maxHeight: '160px',
-                  objectFit: 'contain',
-                }}
-              />
-              <Text as="h3" fontSize="md" lineHeight="md" fontWeight="semibold" textAlign="center">
-                Secure document store
-              </Text>
-            </GridItem>
-          </Grid>
+          <WorryList worryList={home.worryList} />
+          <Box mt={{ base: '40px', md: '144px' }} w={{ base: 'auto', md: '984px' }}>
+            {home.benefit}
+          </Box>
         </Flex>
-        <WorryList worryList={home.worryList} />
-        <Box mt="144px" w="984px">
-          {home.benefit}
-        </Box>
-      </Flex>
-      <Tabs {...home.tabs} />
-    </BaseContainer>
-  </Box>
-);
+        <Tabs {...home.tabs} />
+      </BaseContainer>
+    </Box>
+  );
+};
