@@ -32,7 +32,7 @@ export const TargetClients = ({ targetClients }) => {
               alt={title}
               width={400}
               height={262}
-              style={{ height: isMobile ? '162px' : '205px' }}
+              style={{ height: isMobile ? 'auto' : '205px' }}
             />
           </Center>
           <Text

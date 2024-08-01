@@ -62,7 +62,9 @@ const HomeMovers = () => (
         justifyContent="center"
         flexDir={{ base: 'column-reverse', md: 'row' }}
       >
-        <Phone />
+        <Flex gridArea="two" justifyContent="center">
+          <Phone />
+        </Flex>
         <Flex flexDir="column" gap={{ base: '24px', md: '40px' }} w={{ base: 'auto', md: '437px' }}>
           <Text
             as="h2"
